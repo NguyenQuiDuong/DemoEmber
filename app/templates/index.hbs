@@ -1,0 +1,868 @@
+
+<div id='main' role='main' style='margin-top:0px;'>
+    <div check-time-zone=''></div>
+
+    <div class='alerts ng-cloak' ng-controller='AlertCtrl as alertCtrl'>
+        <div class='center alert flash-message topAlert' ng-class='alert.type' ng-repeat='alert in Alert.alerts'>
+            <a class='close' data-dismiss='alert'>×</a>
+            <span>{{alert.msg}}</span>
+            <span msg-html-unsafe='alert.msgHtmlUnsafe'></span>
+            <a class='never-ask-again muted' href='https://www.codementor.io/www_codementor_default.html#'
+               ng-click='Alert.neverAskAgain(alert.name)' style='padding-left:10px;text-decoration:underline;'>
+                Never ask again
+            </a>
+        </div>
+    </div>
+
+    <div class='homepage' ng-controller='IndexCtrl as ic' ng-init='initialSet()'>
+        <div class='landing index'>
+            <div class='with-request-form'>
+                <div class='headerBlock'>
+                    <div class='hero-unit'>
+                        <center>
+                            <img alt='Programming Help, Learn How to Program Online' id='mac1'
+                                 src='programming-help-online.png'>
+
+                            <h1 class='headTitle'>
+                                Live 1:1 help from
+                                expert developers
+                            </h1>
+
+                            <h3 style='font-size: 20px;color: rgba(255,255,255,0.8);'>
+                                Codementor is your live 1:1 expert mentor helping you in real time.
+                            </h3>
+                        </center>
+                    </div>
+                    <div class='customizeContainer'>
+                        <div class='row-fluid request-form-wrapper'>
+                            <div class='span10 offset1'>
+                                <form class="request-form" ng-submit="formPosted=true;ic.onSubmitIndexRequestForm()"
+                                      action="https://www.codementor.io/get-help-now" accept-charset="UTF-8"
+                                      method="post"><input name="utf8" type="hidden" value="&#x2713;"/><input
+                                        type="hidden" name="authenticity_token"
+                                        value="h8E3wmRW10poS84VIzU2Y+tK7OOOURuW15YIBnnAxFncwq0wkQBnIykev3Q45n9qsRT0xbVFN6lBy3FVjGgslw=="/>
+                                    <input name='request_title'
+                                           placeholder='e.g. Need help debugging SASS/CSS for frontend in Rails app'
+                                           required='required' type='text'>
+                                    <button class='btn btn-red' type='submit'>
+<span ng-hide='formPosted'>
+Get help now
+</span>
+<span class='ng-cloak' ng-show='formPosted'>
+Loading ...
+<i class='icon-spin icon-refresh' ng-show='formPosted'></i>
+</span>
+                                    </button>
+                                </form>
+
+                            </div>
+                        </div>
+                        <div class='row-fluid action-links' style='display:none;'>
+                            <div class='span12 text-center'>
+                                <a class='sign-up-link actionLink' data-target='#signup-modal' data-toggle='modal'
+                                   href='https://www.codementor.io/www_codementor_default.html#' role='button'>
+                                    Sign up to learn more
+                                </a>
+                            </div>
+                        </div>
+                        <div class='row-fluid signup-button text-center'>
+                            <div class='span12'>
+                                <a class='btn btn-red signup' ng-click='ic.openSignUpForm()'>
+                                    Sign Up Now
+                                </a>
+                            </div>
+                        </div>
+                        <div class='row-fluid'>
+                            <div class='span12 video-block'>
+                                <a class='video wistia-popover[height=360,playerColor=7b796a,width=640]'
+                                   href='https://fast.wistia.net/embed/iframe/gy8avcokxl?popover=true'
+                                   ng-click='videoTrackEvent("landing")'>
+                                    Watch Video
+                                    <i class='play-video'>
+                                        <i class='icon-play'></i>
+                                    </i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='solution'>
+                <div class='customizeContainer'>
+                    <div class='row-fluid'>
+                        <div class='span3'>
+                            <div class='column'>
+                                <div class='subtitle'>
+                                    <img class='image' src='image/home/icon_001_5.png'>
+
+                                    <h3 class='subtitle'>Get Experts On-Demand</h3>
+                                </div>
+                                <p class='description'>
+                                    Codementor connects you with tech experts for live help via screen sharing, video,
+                                    and text chat.
+                                </p>
+                            </div>
+                        </div>
+                        <div class='span3'>
+                            <div class='column'>
+                                <div class='subtitle'>
+                                    <img class='image' src='image/home/icon_005_3.png'>
+
+                                    <h3 class='subtitle'>Solve Urgent Issues</h3>
+                                </div>
+                                <p class='description'>
+                                    Get instant help from experts for web & mobile development, devops, UI/UX, and more.
+                                </p>
+                            </div>
+                        </div>
+                        <div class='span3'>
+                            <div class='column'>
+                                <div class='subtitle'>
+                                    <img class='image' src='image/home/icon_rocket_02.png'>
+
+                                    <h3 class='subtitle'>Build Projects Faster</h3>
+                                </div>
+                                <p class='description'>
+                                    Codementor helps you ship faster with timely advice and speeds up your development
+                                    process.
+                                </p>
+                            </div>
+                        </div>
+                        <div class='span3'>
+                            <div class='column'>
+                                <div class='subtitle'>
+                                    <img class='image' src='image/home/icon_003_3.png'>
+
+                                    <h3 class='subtitle'>
+                                        100% Guaranteed
+                                    </h3>
+                                </div>
+                                <p class='description'>
+                                    If you're not satisfied, we will cheerily make it right or offer a 100% refund.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id='press'>
+            <div class='customizeContainer'>
+                <div class='row-fluid'>
+                    <div class='span12'>
+                        <center>
+                            <img alt='TechCrunch' class='logo' src='image/press/logo-techcrunch.png'>
+                            <img alt='The Next Web' class='logo' src='image/press/logo-the-next-web.png'>
+                            <img alt='Forbes' class='logo' src='image/press/logo-forbes.png'>
+                            <img alt='Mashable' class='logo' src='image/press/logo-mashable.png'>
+                            <img alt='Hacker News' class='logo' src='image/press/logo-hacker-news.png'>
+                            <img alt='Product Hunt' class='logo' src='image/press/logo-product-hunt.png'>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class='blockDecoration' id='experts'>
+            <div class='customizeContainer'>
+                <div class='row-fluid'>
+                    <div class='span12'>
+                        <h2 class='blockHeader'>
+                            Live Help From 3000<sup>+</sup> <a href='https://www.codementor.io/experts'
+                                                               class='expert-page-link'>Domain Experts</a> Across <a
+                                href='https://www.codementor.io/experts' class='expert-page-link'>100<sup>+</sup>
+                            Categories</a>
+                        </h2>
+                    </div>
+                </div>
+                <div class='row-fluid'>
+                    <div class='span10 offset1'>
+                        <center>
+                            <p class='marketing-byline'>
+                                <a href='https://www.codementor.io/experts' class='expert-page-link'>Live programming
+                                    help</a> from <a href='https://www.codementor.io/experts' class='expert-page-link'>experts</a>
+                                via screen sharing, video, and text chat.
+                            </p>
+                        </center>
+                    </div>
+                </div>
+                <br>
+
+                <div class='row-fluid'>
+                    <div class='span12'>
+                        <center>
+                            <a href='https://www.codementor.io/ruby-on-rails-experts'>
+                                <img class='languageLogo' src='image/category/ruby-on-rails.png'>
+                            </a>
+                            <a href='https://www.codementor.io/javascript-experts'>
+                                <img class='languageLogo' src='image/category/javascript.png'>
+                            </a>
+                            <a href='https://www.codementor.io/angularjs-experts'>
+                                <img class='languageLogo' src='image/category/angularjs.png'>
+                            </a>
+                            <a href='https://www.codementor.io/swift-experts'>
+                                <img class='languageLogo' src='image/category/swift.png'>
+                            </a>
+                            <a href='https://www.codementor.io/ios-experts'>
+                                <img class='languageLogo' src='image/category/ios.png'>
+                            </a>
+                            <a href='https://www.codementor.io/android-experts'>
+                                <img class='languageLogo' src='image/category/android.png'>
+                            </a>
+                            <a href='https://www.codementor.io/python-experts'>
+                                <img class='languageLogo' src='image/category/python.png'>
+                            </a>
+                            <a href='https://www.codementor.io/html_css-experts'>
+                                <img class='languageLogo' src='image/category/html_css.png'>
+                            </a>
+                            <a href='https://www.codementor.io/nodejs-experts'>
+                                <img class='languageLogo' src='image/category/nodejs.png'>
+                            </a>
+                            <a href='https://www.codementor.io/ember-js-experts'>
+                                <img class='languageLogo' src='image/category/ember-js.png'>
+                            </a>
+                            <a href='https://www.codementor.io/reactjs-experts'>
+                                <img class='languageLogo' src='image/category/reactjs.png'>
+                            </a>
+                            <a href='https://www.codementor.io/wordpress-experts'>
+                                <img class='languageLogo' src='image/category/wordpress.png'>
+                            </a>
+                            <a href='https://www.codementor.io/php-experts'>
+                                <img class='languageLogo' src='image/category/php.png'>
+                            </a>
+                            <a href='https://www.codementor.io/docker-experts'>
+                                <img class='languageLogo' src='image/category/docker.png'>
+                            </a>
+                        </center>
+                    </div>
+                </div>
+                <br>
+                <br>
+
+                <div class='hide-mobile'>
+                    <div class='row-fluid'>
+                        <div class='span12'>
+                            <div class='row-fluid'>
+                                <div class='span2'>
+                                    <center>
+                                        <div class='mentorModule'>
+                                            <img alt='Michael Hartl' class='mentorImg'
+                                                 src='index/michael-hartl-header.jpeg'>
+
+                                            <div class='userTitle'>
+                                                Michael Hartl
+                                            </div>
+                                            <p class='description'>
+                                                Author of Ruby on Rails Tutorial
+                                            </p>
+                                        </div>
+                                    </center>
+                                </div>
+                                <div class='span2'>
+                                    <center>
+                                        <div class='mentorModule'>
+                                            <img alt='Steve Klabnik' class='mentorImg'
+                                                 src='image/steve-klabnik-header.jpeg'>
+
+                                            <div class='userTitle'>
+                                                Steve Klabnik
+                                            </div>
+                                            <p class='description'>
+                                                Active Ruby on Rails & Rust Contributor
+                                            </p>
+                                        </div>
+                                    </center>
+                                </div>
+                                <div class='span2'>
+                                    <center>
+                                        <div class='mentorModule'>
+                                            <img alt='Martijn Pieters' class='mentorImg'
+                                                 src='image/martijn-pieters-header.jpg'>
+
+                                            <div class='userTitle'>
+                                                Martijn Pieters
+                                            </div>
+                                            <p class='description'>
+                                                #1 Stack Overflow
+                                                <br>
+                                                Python Answerer
+                                            </p>
+                                        </div>
+                                    </center>
+                                </div>
+                                <div class='span2'>
+                                    <center>
+                                        <div class='mentorModule'>
+                                            <img alt='Rebecca Murphey' class='mentorImg'
+                                                 src='image/rebecca-murphey-header.jpeg'>
+
+                                            <div class='userTitle'>
+                                                Rebecca Murphey
+                                            </div>
+                                            <p class='description'>
+                                                JavaScript Expert & Conference Speaker
+                                            </p>
+                                        </div>
+                                    </center>
+                                </div>
+                                <div class='span2'>
+                                    <center>
+                                        <div class='mentorModule'>
+                                            <img alt='Arlo Carreon' class='mentorImg'
+                                                 src='image/arlo-carreon-header.jpeg'>
+
+                                            <div class='userTitle'>
+                                                Arlo Carreon
+                                            </div>
+                                            <p class='description'>
+                                                Frontend Developer
+                                                <br>
+                                                @ Amazon
+                                            </p>
+                                        </div>
+                                    </center>
+                                </div>
+                                <div class='span2'>
+                                    <center>
+                                        <div class='mentorModule'>
+                                            <img alt='Naomi Freeman' class='mentorImg'
+                                                 src='image/naomi-header.jpg'>
+
+                                            <div class='userTitle'>
+                                                Naomi Freeman
+                                            </div>
+                                            <p class='description'>
+                                                Conference Speaker & Course Instructor
+                                            </p>
+                                        </div>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='show-mobile'>
+                <center>
+                    <div class='mentor-list'>
+                        <div class='mentorModule'>
+                            <img alt='Michael Hartl' class='mentorImg' src='image/michael-hartl-header.jpeg'>
+
+                            <div class='userTitle'>
+                                Michael Hartl
+                            </div>
+                            <p class='description'>
+                                Author of Ruby on Rails Tutorial
+                            </p>
+                        </div>
+                        <div class='mentorModule'>
+                            <img alt='Steve Klabnik' class='mentorImg' src='image/steve-klabnik-header.jpeg'>
+
+                            <div class='userTitle'>
+                                Steve Klabnik
+                            </div>
+                            <p class='description'>
+                                Active Ruby on Rails & Rust Contributor
+                            </p>
+                        </div>
+                        <div class='mentorModule'>
+                            <img alt='Martijn Pieters' class='mentorImg' src='index/martijn-pieters-header.jpg'>
+
+                            <div class='userTitle'>
+                                Martijn Pieters
+                            </div>
+                            <p class='description'>
+                                #1 Stack Overflow
+                                <br>
+                                Python Answerer
+                            </p>
+                        </div>
+                        <div class='mentorModule'>
+                            <img alt='Rebecca Murphey' class='mentorImg' src='index/rebecca-murphey-header.jpeg'>
+
+                            <div class='userTitle'>
+                                Rebecca Murphey
+                            </div>
+                            <p class='description'>
+                                JavaScript Expert & Conference Speaker
+                            </p>
+                        </div>
+                        <div class='mentorModule'>
+                            <img alt='Arlo Carreon' class='mentorImg' src='index/arlo-carreon-header.jpeg'>
+
+                            <div class='userTitle'>
+                                Arlo Carreon
+                            </div>
+                            <p class='description'>
+                                Frontend Developer
+                                <br>
+                                @ Amazon
+                            </p>
+                        </div>
+                        <div class='mentorModule'>
+                            <img alt='Naomi Freeman' class='mentorImg' src='image/naomi-header.jpg'>
+
+                            <div class='userTitle'>
+                                Naomi Freeman
+                            </div>
+                            <p class='description'>
+                                Conference Speaker & Course Instructor
+                            </p>
+                        </div>
+                    </div>
+                </center>
+                <div class='row-fluid'>
+                    <div class='span12'>
+                        <center>
+                            <br>
+                            <a class='btn signupBtn' ng-click='ic.openSignUpForm()'>
+                                Get Instant Help From Online Experts
+                            </a>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id='satisfication'>
+            <div class='customizeContainer'>
+                <div class='row-fluid'>
+                    <div class='span12'>
+                        <h2 class='subHeader'>
+                            100% Satisfaction Guaranteed.
+                        </h2>
+
+                        <p class='marketing-byline'>
+                            If you're not satisfied, we will cheerily make it right or offer a 100% refund.
+                        </p>
+                        <img class='guaranteeBadge' src='image/home/guarantee_badge2.png'>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='blockDecoration' id='stories'>
+            <div class='customizeContainer'>
+                <div class='row-fluid'>
+                    <div class='span12'>
+                        <h2 class='blockHeader'>
+                            "Codementor is a Godsend"
+                        </h2>
+                    </div>
+                </div>
+                <div class='row-fluid'>
+                    <div class='span8 offset2'>
+                        <p class='marketing-byline'>
+                            Whether you are a beginner looking for a coding tutor or an experienced engineer looking for
+                            expert guidance, Codementor can help you achieve your goals, faster.
+                        </p>
+                    </div>
+                </div>
+                <br>
+
+                <div class='row-fluid'>
+                    <div class='span10 offset1'>
+                        <center>
+                            <img class='boseLogo logo' src='image/business/bose_logo_1.png'>
+                            <img class='lockheedmartinLogo logo' src='image/business/lockheed_martin_logo.png'>
+                            <img class='ycLogo logo' src='image/business/ycombinator_logo.png'>
+                            <img class='techstarsLogo logo' src='image/business/techstars_logo.png'>
+                            <img class='ycLogo logo' src='image/business/ga_logo.png'>
+                        </center>
+                    </div>
+                </div>
+                <br>
+                <br>
+
+                <div class='hide-mobile'>
+                    <div class='row-fluid'>
+                        <div class='span2 offset1'>
+                            <center>
+                                <div class='story'>
+                                    <img alt='Developer at Biotech Startup' class='userImg img-rounded active'
+                                         ng-class="{active: isCurrentStory('maximilian-maksutovic')}"
+                                         ng-click="setCurrentStory('maximilian-maksutovic')"
+                                         src='https://www.codementor.io/s3.amazonaws.com/codementor_content/maximilian-maksutovic.jpg'>
+
+                                    <div class='userName'>
+                                        Max Maksutovic
+                                    </div>
+                                    <div class='userTitle'>
+                                        VC-Funded Startup Engineer
+                                    </div>
+                                </div>
+                            </center>
+                        </div>
+                        <div class='span2'>
+                            <center>
+                                <div class='story'>
+                                    <img alt='Freelance Developer' class='userImg img-rounded'
+                                         ng-class="{active: isCurrentStory('brad-ceresani')}"
+                                         ng-click="setCurrentStory('brad-ceresani')"
+                                         src='https://www.codementor.io/s3.amazonaws.com/codementor_content/brad-ceresani.jpg'>
+
+                                    <div class='userName'>
+                                        Brad Cerasani
+                                    </div>
+                                    <div class='userTitle'>
+                                        Freelance Developer
+                                    </div>
+                                </div>
+                            </center>
+                        </div>
+                        <div class='span2'>
+                            <center>
+                                <div class='story'>
+                                    <img alt='Alicia Morga' class='userImg img-rounded'
+                                         ng-class="{active: isCurrentStory('alicia-morga')}"
+                                         ng-click="setCurrentStory('alicia-morga')"
+                                         src='https://www.codementor.io/s3.amazonaws.com/codementor_content/2014-Aug-Week4-interviews/Alicia-Morga.jpg'>
+
+                                    <div class='userName'>
+                                        Alicia Morga
+                                    </div>
+                                    <div class='userTitle'>
+                                        Serial Entrepreneur
+                                    </div>
+                                </div>
+                            </center>
+                        </div>
+                        <div class='span2'>
+                            <center>
+                                <div class='story'>
+                                    <img alt='Dhruv Patel' class='userImg img-rounded'
+                                         ng-class="{active: isCurrentStory('dhruv-patel')}"
+                                         ng-click="setCurrentStory('dhruv-patel')"
+                                         src='https://www.codementor.io/s3.amazonaws.com/codementor_content/dhruv-patel.png'>
+
+                                    <div class='userName'>
+                                        Dhruv Patel
+                                    </div>
+                                    <div class='userTitle'>
+                                        Designer
+                                    </div>
+                                </div>
+                            </center>
+                        </div>
+                        <div class='span2'>
+                            <center>
+                                <div class='story'>
+                                    <img alt='Taylor Black' class='userImg img-rounded'
+                                         ng-class="{active: isCurrentStory('taylor')}"
+                                         ng-click="setCurrentStory('taylor')"
+                                         src='https://www.codementor.io/s3.amazonaws.com/codementor_content/taylor-black.jpg'>
+
+                                    <div class='userName'>
+                                        Taylor Black
+                                    </div>
+                                    <div class='userTitle'>
+                                        Web Development Agency
+                                    </div>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class='row-fluid'>
+                        <div class='span8 offset2'>
+                            <center>
+                                <p class='ng-cloak blockquote animated fadeInLeft'
+                                   ng-show="isCurrentStory('maximilian-maksutovic')">
+                                    Ship features faster by pair programming with domain experts on Codementor.
+                                </p>
+
+                                <p class='ng-cloak blockquote animated fadeInLeft'
+                                   ng-show="isCurrentStory('brad-ceresani')">
+                                    Build better client projects with on-demand code reviews.
+                                </p>
+
+                                <p class='ng-cloak blockquote animated fadeInLeft'
+                                   ng-show="isCurrentStory('alicia-morga')">
+                                    Launch products faster, even when Stack Overflow has no answers.
+                                </p>
+
+                                <p class='ng-cloak blockquote animated fadeInLeft'
+                                   ng-show="isCurrentStory('dhruv-patel')">
+                                    Win more clients with on-demand JavaScript and backend expertise.
+                                </p>
+
+                                <p class='ng-cloak blockquote animated fadeInLeft' ng-show="isCurrentStory('taylor')">
+                                    Expand technical expertise for our team and save months of work.
+                                </p>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='show-mobile'>
+                <center>
+                    <div class='story-list'>
+                        <div class='column'>
+                            <img alt='Developer at Biotech Startup' class='userImg'
+                                 src='https://www.codementor.io/s3.amazonaws.com/codementor_content/maximilian-maksutovic.jpg'>
+
+                            <div class='userName'>
+                                Max Maksutovic
+                            </div>
+                            <div class='userTitle'>
+                                VC-Funded Startup Engineer
+                            </div>
+                            <p class='blockquote'>
+                                Ship features faster by pair programming with domain experts on Codementor.
+                            </p>
+                        </div>
+                        <div class='column'>
+                            <img alt='Freelance Developer' class='userImg'
+                                 src='https://www.codementor.io/s3.amazonaws.com/codementor_content/brad-ceresani.jpg'>
+
+                            <div class='userName'>
+                                Brad Cerasani
+                            </div>
+                            <div class='userTitle'>
+                                Freelance Developer
+                            </div>
+                            <p class='blockquote'>
+                                Build better client projects with on-demand code reviews.
+                            </p>
+                        </div>
+                        <div class='column'>
+                            <img alt='Alicia Morga' class='userImg'
+                                 src='https://www.codementor.io/s3.amazonaws.com/codementor_content/2014-Aug-Week4-interviews/Alicia-Morga.jpg'>
+
+                            <div class='userName'>
+                                Alicia Morga
+                            </div>
+                            <div class='userTitle'>
+                                Serial Entrepreneur
+                            </div>
+                            <p class='blockquote'>
+                                Launch products faster, even when Stack Overflow has no answers.
+                            </p>
+                        </div>
+                        <div class='column'>
+                            <img alt='Dhruv Patel' class='userImg'
+                                 src='https://www.codementor.io/s3.amazonaws.com/codementor_content/dhruv-patel.png'>
+
+                            <div class='userName'>
+                                Dhruv Patel
+                            </div>
+                            <div class='userTitle'>
+                                Designer
+                            </div>
+                            <p class='blockquote'>
+                                Win more clients with on-demand JavaScript and backend expertise.
+                            </p>
+                        </div>
+                        <div class='column'>
+                            <img alt='Taylor Black' class='userImg'
+                                 src='https://www.codementor.io/s3.amazonaws.com/codementor_content/taylor-black.jpg'>
+
+                            <div class='userName'>
+                                Taylor Black
+                            </div>
+                            <div class='userTitle'>
+                                Web Development Agency
+                            </div>
+                            <p class='blockquote'>
+                                Expand technical expertise for our team and save months of work.
+                            </p>
+                        </div>
+                    </div>
+                </center>
+            </div>
+            <br>
+
+            <h3>
+                <a class='btn btn-stories' href='https://www.codementor.io/success-stories'>
+                    SEE CUSTOMERS STORIES
+                </a>
+            </h3>
+        </div>
+
+        <div id='finalSignUp'>
+            <div class='innerBlock blockDecoration'>
+                <div class='customizeContainer'>
+                    <div class='row-fluid'>
+                        <div class='span12'>
+                            <center>
+                                <div class='finalSignUpBlock'>
+                                    <h2 class='blockHeader'>
+                                        Get Help From a Codementor Now
+                                    </h2>
+
+                                    <div class='session'>
+                                        <form class="simple_form form-inline" id="new_user"
+                                              action="https://www.codementor.io/offers_signup?utm_campaign=&amp;utm_source=&amp;utm_medium="
+                                              accept-charset="UTF-8" method="post"><input name="utf8" type="hidden"
+                                                                                          value="&#x2713;"/><input
+                                                type="hidden" name="authenticity_token"
+                                                value="iuNR3DrvAYRWRF9S3MQUPcAGKkVRykWt20rC2DjJIkHR4Msuz7mx7RcRLjPHF100mlgyY2reaZJNF7uLzWHKjw=="/>
+
+                                            <div class='sign_up_form'>
+                                                <input label="false" class="string email required bigform input_email"
+                                                       type="email" pattern=".*" placeholder="Email address"
+                                                       name="user[email]" id="user_email"/>
+                                                <input class='hidden' name='is_offers' type='hidden' value='false'>
+                                                <input class='hidden' name='is_refferral' type='hidden' value='false'>
+                                                <input class='hidden' name='is_promotion' type='hidden' value='false'>
+                                                <input class='hidden' name='promo_code' type='hidden' value=''>
+                                                <input class='hidden' name='promotion_type' type='hidden'>
+                                                <input class='hidden' name='utm_seo' type='hidden' value=''>
+                                                <input class='hidden' name='utm_form' type='hidden'
+                                                       value='index_get_help_form'>
+                                                <input class='hidden' name='pending_msg_content' type='hidden' value=''>
+                                                <input class='hidden' name='pending_msg_mentor' type='hidden' value=''>
+                                                <input class='hidden' name='office_hour' type='hidden' value=''>
+                                                <input type="submit" name="commit" value="SIGN UP NOW"
+                                                       class="btn btn-red submitBtn"/>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                    <br>
+                                    <br>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                    <div class='hide-mobile'>
+                        <div class='row-fluid'>
+                            <div class='span8 offset2'>
+                                <div class='row-fluid'>
+                                    <div class='span2'>
+                                        <a class='become-codementor-link'
+                                           href='https://www.codementor.io/javascript-experts'>
+                                            Javascript
+                                        </a>
+                                        <a class='become-codementor-link'
+                                           href='https://www.codementor.io/angularjs-experts'>
+                                            AngularJS
+                                        </a>
+                                        <a class='become-codementor-link'
+                                           href='https://www.codementor.io/reactjs-experts'>
+                                            React
+                                        </a>
+                                        <a class='become-codementor-link'
+                                           href='https://www.codementor.io/jquery-experts'>
+                                            jQuery
+                                        </a>
+                                    </div>
+                                    <div class='span2'>
+                                        <a class='become-codementor-link' href='https://www.codementor.io/ruby-experts'>
+                                            Ruby
+                                        </a>
+                                        <a class='become-codementor-link'
+                                           href='https://www.codementor.io/python-experts'>
+                                            Python
+                                        </a>
+                                        <a class='become-codementor-link' href='https://www.codementor.io/php-experts'>
+                                            PHP
+                                        </a>
+                                        <a class='become-codementor-link'
+                                           href='https://www.codementor.io/nodejs-experts'>
+                                            Node.js
+                                        </a>
+                                    </div>
+                                    <div class='span2'>
+                                        <a class='become-codementor-link' href='https://www.codementor.io/java-experts'>
+                                            Java
+                                        </a>
+                                        <a class='become-codementor-link'
+                                           href='https://www.codementor.io/c_plus_plus-experts'>
+                                            C++
+                                        </a>
+                                        <a class='become-codementor-link'
+                                           href='https://www.codementor.io/c_sharp-experts'>
+                                            C#
+                                        </a>
+                                        <a class='become-codementor-link' href='https://www.codementor.io/go-experts'>
+                                            Go
+                                        </a>
+                                    </div>
+                                    <div class='span2'>
+                                        <a class='become-codementor-link'
+                                           href='https://www.codementor.io/android-experts'>
+                                            Android
+                                        </a>
+                                        <a class='become-codementor-link' href='https://www.codementor.io/ios-experts'>
+                                            iOS
+                                        </a>
+                                        <a class='become-codementor-link'
+                                           href='https://www.codementor.io/swift-experts'>
+                                            Swift
+                                        </a>
+                                        <a class='become-codementor-link'
+                                           href='https://www.codementor.io/phonegap-experts'>
+                                            PhoneGap
+                                        </a>
+                                    </div>
+                                    <div class='span2'>
+                                        <a class='become-codementor-link'
+                                           href='https://www.codementor.io/twitter-bootstrap-experts'>
+                                            Twitter bootstrap
+                                        </a>
+                                        <a class='become-codementor-link'
+                                           href='https://www.codementor.io/html_css-experts'>
+                                            HTML/CSS
+                                        </a>
+                                        <a class='become-codementor-link' href='https://www.codementor.io/sass-experts'>
+                                            Sass
+                                        </a>
+                                        <a class='become-codementor-link' href='https://www.codementor.io/css-experts'>
+                                            CSS
+                                        </a>
+                                    </div>
+                                    <div class='span2'>
+                                        <a class='become-codementor-link'
+                                           href='https://www.codementor.io/devops-experts'>
+                                            DevOps
+                                        </a>
+                                        <a class='become-codementor-link' href='https://www.codementor.io/sql-experts'>
+                                            SQL
+                                        </a>
+                                        <a class='become-codementor-link' href='https://www.codementor.io/git-experts'>
+                                            Git
+                                        </a>
+                                        <a class='become-codementor-link'
+                                           href='https://www.codementor.io/linux-experts'>
+                                            Linux
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+                    <div class='row-fluid'>
+                        <div class='span12'>
+                            <h5 class='become-codementor-title'>
+                                Want to Become a Codementor?
+                            </h5>
+
+                            <p class='become-codementor-description'>
+                                Join coding, design, devops and more experts across these popular topics
+                            </p>
+                        </div>
+                    </div>
+                    <div class='row-fluid'>
+                        <a class='btn become-codementor-button' href='https://www.codementor.io/mentor/apply'
+                           target='_blank'>
+                            Become a Codementor
+                        </a>
+                    </div>
+                    <div class='row-fluid'>
+                        <div class='span12'>
+                            <center>
+                                <div class='addthis_horizontal_follow_toolbox'></div>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -23,7 +23,7 @@ module.exports = function(environment) {
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval' code.jquery.com use.typekit.net connect.facebook.net maps.googleapis.com maps.gstatic.com",
       'font-src': "'self' data: use.typekit.net",
       'connect-src': "'self'",
-      'img-src': "'self' www.facebook.com www.codementor.io",
+      'img-src': "'self' www.facebook.com www.codementor.io cdn.codementor.io",
       'style-src': "'self' 'unsafe-inline' use.typekit.net",
       'frame-src': "s-static.ak.facebook.com static.ak.facebook.com www.facebook.com"
     },

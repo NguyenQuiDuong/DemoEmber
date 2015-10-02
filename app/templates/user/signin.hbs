@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="css\style-sign-in.css">
 <div class='topBlock'>
     <center>
         <div class='customizeContainer'>
@@ -5,15 +6,23 @@
                 <h1 class='title'>
                     Sign in
                 </h1>
+
                 <div class='session'>
                     <div class='row-fluid'>
                         <div class='span12'>
 
-                            <form action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="zhIwkKxFTZ5psYL7eJrFE7Mj30xSzeOjJCIsT+Rj11hDWDqB39tEQIbwNOvNTNV3F5wS6NVJ89Ikg7/7T/dkSw==" />
+                            <form action="user\signin.hbs"  accept-charset="UTF-8" method="post">
+                                <input name="utf8" type="hidden" value="&#x2713;"/>
+                                <input type="hidden" name="authenticity_token"
+                                       value="zhIwkKx FTZ5psYL7eJrFE7Mj30xSzeOjJCIsT+Rj11hDWDqB39tEQIbwNOvNTNV3F5wS6NVJ89Ikg7/7T/dkSw=="/>
+
                                 <div class='form-inputs'>
-                                    <input type="text" name="login" id="login" required="required" autofocus="autofocus" placeholder="Username or Email" class="inputName" />
-                                    <input type="password" name="password" id="password" required="required" placeholder="Password" class="inputPassword" />
-                                    <label for="user_remember_me"><input type="checkbox" name="remember_me" id="user_remember_me" class="boolean" />
+                                    <input type="text" name="login" id="login" required="required" autofocus="autofocus"
+                                           placeholder="Username or Email" class="inputName"/>
+                                    <input type="password" name="password" id="password" required="required"
+                                           placeholder="Password" class="inputPassword"/>
+                                    <label for="user_remember_me"><input type="checkbox" name="remember_me"
+                                                                         id="user_remember_me" class="boolean"/>
                                         Remember me
                                     </label></div>
                                 <br>

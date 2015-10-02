@@ -15,4 +15,13 @@ App = Ember.Application.extend({
 
 loadInitializers(App, config.modulePrefix);
 
+
+//App.LoginController = Ember.Controller.extend{(
+//  login: function(){
+//  var data = {
+//    username: this.get('username'),
+//    password: this.get('password')
+//  };
+//  Ember.$.post(''
+//)};
 export default App;

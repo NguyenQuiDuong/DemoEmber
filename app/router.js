@@ -5,11 +5,11 @@ var Router = Ember.Router.extend({
   location: config.locationType
 });
 
-Router.map(function() {
-  this.route('user', function() {
+Router.map(function () {
+  this.route('user', function () {
     this.route('signin');
-  this.route('signup');
-});
+    this.route('signup');
+  });
 });
 
 export default Router;

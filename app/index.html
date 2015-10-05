@@ -1,84 +1,87 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Demo</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta content='Codementor provides instant 1:1 help for software development.  Build projects faster with on-demand live help from expert developers.'
-          name='description'>
-    <meta content='Codementor' name='author'>
-    <meta content='Code Mentor, Coding Help, Pair Programming, Software Expert, Top Developer' name='keywords'>
-    <meta content='Codementor | Instant 1:1 Help from Expert Developers' property='og:title'>
-    <meta content='Codementor provides instant 1:1 help for software development.  Build projects faster with on-demand live help from expert developers.'
-          property='og:description'>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Demo</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta
+    content='Codementor provides instant 1:1 help for software development.  Build projects faster with on-demand live help from expert developers.'
+    name='description'>
+  <meta content='Codementor' name='author'>
+  <meta content='Code Mentor, Coding Help, Pair Programming, Software Expert, Top Developer' name='keywords'>
+  <meta content='Codementor | Instant 1:1 Help from Expert Developers' property='og:title'>
+  <meta
+    content='Codementor provides instant 1:1 help for software development.  Build projects faster with on-demand live help from expert developers.'
+    property='og:description'>
 
-    <link rel="stylesheet" media="screen" href="/css/bootstrap.min.css"/>
-    <link rel="stylesheet" media="screen" href="/css/layout_wide.css"/>
-    <script src="/js/jquery-2.1.4.min.js"></script>
-    <!--<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>-->
-    <script src="/js/application.js"></script>
-    <script src="/lib/parsley.js"></script>
-    <script src="/lib/parsley.extend.js"></script>
-    <script src="/lib/jquery.session.js"></script>
-    <script src="/lib/bootstrap-datepicker.js"></script>
-    <script src="/lib/purl.js"></script>
-    <script src="/lib/md5.js"></script>
+  <link rel="stylesheet" media="screen" href="/css/bootstrap.min.css"/>
+  <link rel="stylesheet" media="screen" href="/css/layout_wide.css"/>
+  <script src="/js/jquery-2.1.4.min.js"></script>
+  <!--<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>-->
+  <script src="/js/application.js"></script>
+  <script src="/lib/parsley.js"></script>
+  <script src="/lib/parsley.extend.js"></script>
+  <script src="/lib/jquery.session.js"></script>
+  <script src="/lib/bootstrap-datepicker.js"></script>
+  <script src="/lib/purl.js"></script>
+  <script src="/lib/md5.js"></script>
 
-    <link rel="stylesheet" media="screen" href="/css/home/index.css"/>
-    <link rel="stylesheet" media="screen" href="/css/sign_up_form.css"/>
-    <link rel="stylesheet" media="screen" href="/lib/animate.css"/>
-    <link rel="stylesheet" media="screen" href="/lib/slick.css"/>
-    <link rel="stylesheet" media="screen" href="/lib/slick-theme.css"/>
-    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="/lib/slick.min.js"></script>
-    <link rel="stylesheet" media="screen" href="/css/sign_up_form.css"/>
+  <link rel="stylesheet" media="screen" href="/css/home/index.css"/>
+  <link rel="stylesheet" media="screen" href="/css/sign_up_form.css"/>
+  <link rel="stylesheet" media="screen" href="/lib/animate.css"/>
+  <link rel="stylesheet" media="screen" href="/lib/slick.css"/>
+  <link rel="stylesheet" media="screen" href="/lib/slick-theme.css"/>
+  <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="/lib/slick.min.js"></script>
+  <link rel="stylesheet" media="screen" href="/css/sign_up_form.css"/>
 
-    <style>
-      .alert.flash-message {
-        width: 100%;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        border-radius: 0;
-        -webkit-border-radius: 0px;
-        -moz-border-radius: 0px;
-        margin-bottom: 0px;
-      }
-    </style>
-    <!-- start Mixpanel -->
+  <style>
+    .alert.flash-message {
+      width: 100%;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      border-radius: 0;
+      -webkit-border-radius: 0px;
+      -moz-border-radius: 0px;
+      margin-bottom: 0px;
+    }
 
-    <noscript>
-      <img alt='' height='1' src='www.facebook.com/tr.gif' style='display:none' width='1'>
-    </noscript>
-    <!-- ///////////// End of Facebook Custom Audience Pixel -->
+  </style>
+  <!-- start Mixpanel -->
 
-    <meta name="csrf-param" content="authenticity_token"/>
-    <meta name="csrf-token"
-          content="b6Ff3YItNk/l0Tb11oKm3VULCFGRzIaE6QdL7G7jivQ0osUvd3uGJqSER5TNUe/UD1UQd6rYqrt/WjK/m0tiOg=="/>
-    <link rel="shortcut icon" type="image/x-icon" href="image/home/favicon.png"/>
+  <noscript>
+    <img alt='' height='1' src='www.facebook.com/tr.gif' style='display:none' width='1'>
+  </noscript>
+  <!-- ///////////// End of Facebook Custom Audience Pixel -->
 
-    {{content-for 'head'}}
+  <meta name="csrf-param" content="authenticity_token"/>
+  <meta name="csrf-token"
+        content="b6Ff3YItNk/l0Tb11oKm3VULCFGRzIaE6QdL7G7jivQ0osUvd3uGJqSER5TNUe/UD1UQd6rYqrt/WjK/m0tiOg=="/>
+  <link rel="shortcut icon" type="image/x-icon" href="image/home/favicon.png"/>
 
-    <link rel="stylesheet" href="assets/vendor.css">
-    <link rel="stylesheet" href="assets/demo-ember.css">
+  {{content-for 'head'}}
 
-    {{content-for 'head-footer'}}
-  </head>
-  <body>
-  {{content-for 'body'}}
+  <link rel="stylesheet" href="assets/vendor.css">
+  <link rel="stylesheet" href="assets/demo-ember.css">
 
-  <script src="assets/vendor.js"></script>
-    <script src="assets/demo-ember.js"></script>
+  {{content-for 'head-footer'}}
+</head>
+<body>
+{{content-for 'body'}}
 
-  <!--<script type="text/x-handlebars" data-template-name="login">-->
-  <!--<form action="" class="form-inline">-->
-    <!--<h2>Login</h2>-->
-    <!--{{input value=username type="text" placeholder="Username"}}-->
-    <!--{{input value="password" type="password" placeholder="Passwrod"}}-->
-  <!--</form>-->
-  <!--</script>-->
+<script src="assets/vendor.js"></script>
+<script src="assets/demo-ember.js"></script>
 
-  {{content-for 'body-footer'}}
-  </body>
+<!--<script type="text/x-handlebars" data-template-name="login">-->
+<!--<form action="" class="form-inline">-->
+<!--<h2>Login</h2>-->
+<!--{{input value=username type="text" placeholder="Username"}}-->
+<!--{{input value="password" type="password" placeholder="Passwrod"}}-->
+<!--</form>-->
+<!--</script>-->
+
+{{content-for 'body-footer'}}
+</body>
 </html>

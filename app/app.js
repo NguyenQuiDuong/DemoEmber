@@ -16,12 +16,21 @@ App = Ember.Application.extend({
 loadInitializers(App, config.modulePrefix);
 
 
-//App.LoginController = Ember.Controller.extend{(
-//  login: function(){
-//  var data = {
-//    username: this.get('username'),
-//    password: this.get('password')
-//  };
-//  Ember.$.post(''
-//)};
+//App.LoginController = Ember.Controller.extend
+//{
+//  (
+//    login
+//:
+//  function () {
+//    var self =this,data= this.getProperties('username', 'password');
+//    Ember.$.post('', data).them(function (response) {
+//      if (response.success) {
+//        self.set('token', response.token);
+//      }
+//    });
+//  }
+//
+//)
+//}
+;
 export default App;

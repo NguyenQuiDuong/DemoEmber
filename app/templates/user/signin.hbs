@@ -10,8 +10,13 @@
                 <div class='session'>
                     <div class='row-fluid'>
                         <div class='span12'>
+                          {{#if errorMessage}}
+                              <div class="alert alert-danger">
+                                {{errorMessage}}
+                              </div>
+                          {{/if}}
 
-                            <form action="user\signin.hbs"  accept-charset="UTF-8" method="post">
+                            <form {{action "login" on "submit"}} accept-charset="UTF-8">
                                 <input name="utf8" type="hidden" value="&#x2713;"/>
                                 <input type="hidden" name="authenticity_token"
                                        value="zhIwkKx FTZ5psYL7eJrFE7Mj30xSzeOjJCIsT+Rj11hDWDqB39tEQIbwNOvNTNV3F5wS6NVJ89Ikg7/7T/dkSw=="/>

@@ -23,6 +23,7 @@ Router.map(function () {
   this.route('experts\\webprogram\\ruby');
 
   this.route('user\\beydogan');
+  this.route('expert');
 });
 
 export default Router;

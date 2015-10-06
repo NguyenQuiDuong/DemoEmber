@@ -1,5 +1,4 @@
 <div id='fb-root'></div>
-
 <!-- TODO Should deal with non-confirmed users -->
 <script>
     $(function () {
@@ -537,7 +536,7 @@ Connected in 10 minutes
                                                 </div>
                                                 <div class='span7'>
                                                     U mia
-                                                    </a>
+
                                                     <img class='groupImg' ng-repeat="groupImg in item['group_imgs']"
                                                          ng-src='{{groupImg}}'>
                                                     <sup class='online' style='margin-left: 5px;'>
@@ -901,7 +900,7 @@ AWAY
                         <form ng-show="modal.step == 0"
                               ng-submit="modal.submit($event);first_page_sent = survey_solved !== -1"
                               class="form-inline"
-                              action="{{&#39;/api/lessons/&#39; + modal.config.lessonId + &#39;/feedback&#39;}}"
+                              action=""
                               accept-charset="UTF-8" method="post"><input name="utf8" type="hidden"
                                                                           value="&#x2713;"/><input type="hidden"
                                                                                                    name="authenticity_token"
@@ -1881,67 +1880,9 @@ This is late at night for
         <!-- %li.muted ·
         -->
     </div>
-    </div>
+
 </footer>
-<script>
 
-    $(document).ready(function () {
-        function getheight() {
-            var myWidth = 0,
-                    myHeight = 0,
-                    element = document.getElementById("email_collection_footer").firstElementChild;
-
-            if (typeof(window.innerWidth) == 'number') {
-                //Non-IE
-                myWidth = window.innerWidth;
-                myHeight = window.innerHeight;
-            }
-            else if (document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
-                //IE 6+ in 'standards compliant mode'
-                myWidth = document.documentElement.clientWidth;
-                myHeight = document.documentElement.clientHeight;
-            }
-            else if (document.body && (document.body.clientWidth || document.body.clientHeight)) {
-                //IE 4 compatible
-                myWidth = document.body.clientWidth;
-                myHeight = document.body.clientHeight;
-            }
-
-            var scrolledtonum = window.pageYOffset + myHeight + 2;
-            var heightofbody = document.body.offsetHeight;
-
-            if (myWidth < 980) {
-                if (element.className.indexOf("disable") == -1) {
-                    element.className = element.className + " disable"
-                }
-            }
-            else {
-                if (scrolledtonum >= heightofbody / 2 || scrolledtonum > 1700) {
-                    setTimeout(function () {
-                        element.className = element.className.replace(" disable", "");
-                    }, 5000);
-                }
-            }
-
-            if (scrolledtonum >= heightofbody) {
-                if (element.className.indexOf("trigger_fadeOut_event") == -1) {
-                    element.className = element.className + " trigger_fadeOut_event";
-                }
-            }
-            else {
-                element.className = element.className.replace(" trigger_fadeOut_event", "");
-            }
-        }
-
-        if (document.getElementById("email_collection_footer") != null) {
-            window.onscroll = getheight;
-            $("#email_collection_footer .closeBtn").on("click", function () {
-                $("#email_collection_footer").hide();
-            });
-        }
-    });
-
-</script>
 
 <app-sound></app-sound>
 <app-chat category=''></app-chat>
@@ -2083,96 +2024,7 @@ about:
     </div>
 </div>
 
-<!-- begin olark code -->
-<script data-cfasync='false' type='text/javascript'>
-    /*
-<![CDATA[
-    */
-    window.olark || (function (c) {
-        var f = window, d = document, l = f.location.protocol == "https:" ? "https:" : "http:", z = c.name, r = "load";
-        var nt = function () {
-            f[z] = function () {
-                (a.s = a.s || []).push(arguments)
-            };
-            var a = f[z]._ = {}, q = c.methods.length;
-            while (q--) {
-                (function (n) {
-                    f[z][n] = function () {
-                        f[z]("call", n, arguments)
-                    }
-                })(c.methods[q])
-            }
-            a.l = c.loader;
-            a.i = nt;
-            a.p = {
-                0: +new Date
-            };
-            a.P = function (u) {
-                a.p[u] = new Date - a.p[0]
-            };
-            function s() {
-                a.P(r);
-                f[z](r)
-            }
 
-            f.addEventListener ? f.addEventListener(r, s, false) : f.attachEvent("on" + r, s);
-            var ld = function () {
-                function p(hd) {
-                    hd = "head";
-                    return ["<", hd, "></", hd, "><", i, ' onl' + 'oad="var d=', g, ";d.getElementsByTagName('head')[0].", j, "(d.", h, "('script')).", k, "='", l, "//", a.l, "'", '"', "></", i, ">"].join("")
-                }
-
-                var i = "body", m = d[i];
-                if (!m) {
-                    return setTimeout(ld, 100)
-                }
-                a.P(1);
-                var j = "appendChild", h = "createElement", k = "src", n = d[h]("div"), v = n[j](d[h](z)), b = d[h]("iframe"), g = "document", e = "domain", o;
-                n.style.display = "none";
-                m.insertBefore(n, m.firstChild).id = z;
-                b.frameBorder = "0";
-                b.id = z + "-loader";
-                if (/MSIE[ ]+6/.test(navigator.userAgent)) {
-                    b.src = "javascript:false"
-                }
-                b.allowTransparency = "true";
-                v[j](b);
-                try {
-                    b.contentWindow[g].open()
-                } catch (w) {
-                    c[e] = d[e];
-                    o = "javascript:var d=" + g + ".open();d.domain='" + d.domain + "';";
-                    b[k] = o + "void(0);"
-                }
-                try {
-                    var t = b.contentWindow[g];
-                    t.write(p());
-                    t.close()
-                } catch (x) {
-                    b[k] = o + 'd.write("' + p().replace(/"/g, String.fromCharCode(92) + '"') + '");d.close();'
-                }
-                a.P(2)
-            };
-            ld()
-        };
-        nt()
-    })({
-        loader: "static.olark.com/jsclient/loader0.js",
-        name: "olark",
-        methods: ["configure", "extend", "declare", "identify"]
-    });
-    olark.identify('4084-495-10-1090');
-    /*
-    ]]>
-    */
-</script>
-<noscript>
-    <a href='https://www.olark.com/site/4084-495-10-1090/contact' target='_blank' title='Contact us'>Questions?
-        Feedback?</a>
-    powered by
-    <a href='http://www.olark.com?welcome' title='Olark live chat software'>Olark live chat software</a>
-</noscript>
-<!-- end olark code -->
 <script id='IntercomSettingsScriptTag'>
     window.intercomSettings = {
 // TODO: The current logged in user's email address.
@@ -3066,7 +2918,7 @@ about:
 <script type="text/ng-template" id='/template/appSysChatbox.html'>
     <div class="appChatbox" ng-hide="chatroom.isClosed">
         <div class="appChatbox-title clearfix">
-            <a class="appChatbox-contact-name" ng-href="{{'/'}}">System Message</a>
+            <a class="appChatbox-contact-name" ng-href="">System Message</a>
             <span class="appChatbox-toggle-min" ng-click="chatroom.isMinimized = !chatroom.isMinimized"></span>
       <span>
         <i class="appChatbox-button icon-minimize-{{chatroom.isMinimized ? 'up' : 'down'}}"
@@ -3158,60 +3010,6 @@ about:
 </script>
 
 
-<script type="text/ng-template" id='/template/appChatboxMessage.html'>
-    <div>
-        <div class="appChatboxMessage clearfix" ng-class="{
-      'from-self': message.sender.username == User.username,
-      'showTime': message.showTime
-    }">
-            <div class="row-fluid gray">
-                <time class="span12 show-time" ng-if='!!message.showTime'>{{message.showTime}}</time>
-            </div>
-            <img class="appChatboxMessage-avatar" ng-src="{{'/users/avatar/'+message.sender.username}}">
-
-            <div title="{{message.hoverTime}}" class="appChatboxMessage-content">
-                <div class='triangle-left' ng-if="message.sender.username !== User.username"></div>
-                <div class='triangle-right' ng-if="message.sender.username === User.username"></div>
-                <ng-switch on="message.type">
-                    <p ng-switch-when="file">[File]<br><a target="_blank"
-                                                          ng-href="{{message.request.url}}"><b>{{message.request.filename}}</b></a><br>{{ message.request.size | fileSize }}
-                    </p>
-
-                    <p ng-switch-when="connect">Please click <a
-                            ng-click="$parent.$parent.chatbox.connect(message.sender)" href="#">Start Session</a> to
-                        start a session with me.</p>
-
-                    <p ng-switch-when="freeConnect">Let’s start a free info session by <a
-                            ng-href="/session?sid={{appChatboxObject.getChatroomID()}}">clicking here</a>.
-
-                    <p ng-switch-when="sessionLink">Please click <a
-                            ng-click="$parent.$parent.chatbox.startSessionFromLinkInChat(message.sessionLink)" href="#">Start
-                        Session</a> to start a session with me.</p>
-
-                    <p ng-switch-when="schedule_cluster_connect">Please click <a
-                            data-method="{{User.isMentor ? '' : 'post'}}"
-                            ng-href="{{appChatboxObject.getStartScheduleClusterSessionPath()}}">Start Session</a> to
-                        start a Codementor Monthly session with me.</p>
-
-                    <p ng-switch-when="request">[Request]<br><a {{(User.isMentor)?'target="_blank"':''}}
-                            ng-href="/questions/{{message.request.id}}"><strong>{{message.request.title}}</strong><br>
-                        <small class="muted">{{message.request.description | limitTo : 30}}{{(message.request.description.length>30)?"...":""}}</small>
-                    </a></p>
-                    <p ng-switch-when="signature">[NDA Request]<br><span
-                            ng-show="message.request.general">{{message.request.msg}}</span><span
-                            ng-show="!message.request.general">I have initiated a Non-Disclosure Agreement request. <a
-                            ng-click="mentorStartSign(message.request.signUrl, message.request.clientId, message.request.fromUser, message.request.signatureRequestId)"
-                            href="#">CLICK HERE</a> to see how it works.</span></p>
-
-                    <p ng-switch-default ng-bind-html="message.content | linky: '_blank' | newLine"></p>
-                </ng-switch>
-                <img class="appChatboxMessage-avatar lastSeen" ng-src="{{'/users/avatar/'+message.receiver.username}}"
-                     ng-if="lastReadMessageId === message.id">
-            </div>
-        </div>
-    </div>
-</script>
-
 <link rel="stylesheet" type="text/css" href="/assets/css_new/appLongterm.css">
 <script type="text/ng-template" id="/template/direct-longterm-modal.html">
     <form method="POST" action="/applicant_longterm_directs/create" ng-submit="modal.submit($event)"
@@ -3255,7 +3053,7 @@ about:
                     <div class="indentBlock">
                         <input type="text" ng-class="{inputError:modal.requiredMsgTitle}" class="prefer_time span8"
                                name="prefer_time" ng-model="modal.prefer_time"
-                               placeholder="e.g. weekday evenings central time"></input>
+                               placeholder="e.g. weekday evenings central time">
                     </div>
                 </div>
             </div>
@@ -3325,7 +3123,7 @@ about:
                 </div>
                 <div class="span10">
                     <input type="text" ng-class="{inputError:modal.requiredMsgTitle}" class="offlineTitle span12"
-                           name="title" ng-model="modal.title" placeholder="What is this for?"></input>
+                           name="title" ng-model="modal.title" placeholder="What is this for?">
                 </div>
             </div>
             <div class="row-fluid" style="margin-bottom:10px;">
@@ -3348,7 +3146,7 @@ about:
                 <div class="span10">
                     <div class="input-prepend input-append">
                         <span class="add-on"> $ </span>
-                        <input class="cost" name="cost" ng-blur="modal.amountBlur()" ng-model="modal.cost"></input>
+                        <input class="cost" name="cost" ng-blur="modal.amountBlur()" ng-model="modal.cost">
                         <span class="add-on"> USD </span>
                     </div>
                     <div class="red" ng-show="modal.errorMsg">{{modal.errorMsg}}</div>
@@ -3361,7 +3159,7 @@ about:
                 </div>
                 <div class="span10">
                     <label class="checkbox">
-                        <input type="checkbox" name="delay_payment" value="true" ng-model="modal.delay_payment"></input>
+                        <input type="checkbox" name="delay_payment" value="true" ng-model="modal.delay_payment">
                         Hold payout until {{modal.config.mentorName}} confirms completion of request
                     </label>
                 </div>
@@ -3394,82 +3192,6 @@ about:
     </form>
 </script>
 
-<!-- //////////////// Adroll -->
-<script>
-    adroll_adv_id = "M7MWLQEBQJFOXKKXY35Q6W";
-    adroll_pix_id = "UQMVMP2Q4BBRZHOE2JFZ34";
-    (function () {
-        var oldonload = window.onload;
-        window.onload = function () {
-            __adroll_loaded = true;
-            var scr = document.createElement("script");
-            var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
-            scr.setAttribute('async', 'true');
-            scr.type = "text/javascript";
-            scr.src = host + "/j/roundtrip.js";
-            ((document.getElementsByTagName('head') || [null])[0] ||
-            document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
-            if (oldonload) {
-                oldonload()
-            }
-        };
-    }());
-</script>
-<!-- //////////////// End of AdRoll -->
-<!-- /////////// Google Code for Remarketing Tag -->
-<!--
-------------------------------------------------
-Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
--------------------------------------------------
--->
-<script>
-    /* <![CDATA[ */
-    var google_conversion_id = 996301096;
-    var google_custom_params = window.google_tag_params;
-    var google_remarketing_only = true;
-    /* ]]> */
-</script>
-<div style='display:none'>
-    <script src='//www.googleadservices.com/pagead/conversion.js' type='text/javascript'></script>
-    <![CDATA[
-    ]]>
-</div>
-<noscript>
-    <div style='display:inline;'>
-        <img alt='' height='1'
-             src='//googleads.g.doubleclick.net/pagead/viewthroughconversion/996301096/?value=0&amp;guid=ON&amp;script=0'
-             style='border-style:none;' width='1'>
-    </div>
-</noscript>
-<!-- /////////// End of Google Code for Remarketing Tag -->
-<!-- /////////// Pathful Tracking -->
-<script>
-    var PF_APPID = "43fad3c176662d81";
-    setTimeout(function () {
-        var d = document;
-        var s = d.createElement('script');
-        s.type = 'text/javascript';
-        s.async = true;
-        s.src = ("https:" == document.location.protocol) ?
-                "https://ssl.pathful.com/js/scripts/secure.js"
-                : "http://s.pathful.com/js/scripts/capture.js";
-        document.body.appendChild(s, d);
-    }, 0);
-</script>
-<!-- /////////// End of Pathful Tracking -->
-<!-- /////////// Hellosign API -->
-<script src='//s3.amazonaws.com/cdn.hellofax.com/js/embedded.js'></script>
-<!-- //////////////// Twitter - site visit -->
-<script src='//platform.twitter.com/oct.js' type='text/javascript'></script>
-<script>
-    twttr.conversion.trackPid('l4ifd');
-</script>
-<noscript>
-    <img alt='' height='1' src='https://analytics.twitter.com/i/adsct?txn_id=l4ifd&amp;p_id=Twitter'
-         style='display:none;' width='1'>
-    <img alt='' height='1' src='//t.co/i/adsct?txn_id=l4ifd&amp;p_id=Twitter' style='display:none;' width='1'>
-</noscript>
-<!-- //////////////// End of Twitter -->
 <script>
     // sift integration
     var _session_id = '58b5069b-4960-4aae-b550-828460fc5284'; // IMPORTANT! Set to a unique session ID for the visitor's current browsing session.
@@ -3707,58 +3429,6 @@ This is late at night for
             </div>
         </form>
     </div>
-    <div class='modal-footer' ng-class='{"no-padding": Viewport.phoneOnly}'>
-        <div class='row-fluid'>
-            <div class='span6'>
-                <div class='formWarning' ng-show='warning'
-                     style='color:#b94a48;display:inline-block;margin-right:10px;'>
-                  {{warning}}
-                </div>
-                <div class='mentor-rate' ng-hide='warning' style='text-align: left;'>
-                    <img class='img-circle' ng-src='{{mentor.avatarUrl||mentor.avatar||mentor.avatar_url}}'
-                         style='width:40px;margin-right:5px;float: left;'>
-
-                    <div class='mentor-name' style='padding: 0px 0px 0px 50px;'>
-                      {{mentor.name}}
-                    </div>
-                    <div class='rate-info' style='padding: 0px 0px 0px 50px;'>
-                        <strong>
-                            ${{ (mentor.special_rate.rate>=0)? mentor.special_rate.rate : mentor.default_rate }}
-                        </strong>
-                        <small class='muted' ng-show='mentor.special_rate.reason'>
-                            ({{mentor.special_rate.reason}})
-                        </small>
-                        <small>/15min</small>
-                        <b class='red' ng-show='free_length&gt;0 &amp;&amp; !warning'
-                           style='display:inline-block;margin-right:10px;text-align:center;font-size: 12px;'>
-                            (First {{free_length/60}} Minutes Free)
-                        </b>
-                    </div>
-                    </img>
-                </div>
-            </div>
-            <div class='span6'>
-                <a aria-hidden='true' class='btn' data-dismiss='modal' href='#'>
-                    <i class='icon-remove'></i>
-                    Cancel
-                </a>
-                <a class='btn' id='btnSection2New'
-                   ng-class="{'btn-success':formType=='datetime'&amp;&amp;!loading,'loading':loading}"
-                   ng-click='submit()' style='width:115px;'>
-                    <i class='icon-calendar' ng-hide='loading'></i>
-                    <img ng-show="loading" style="width:16px;"
-                         src="https://cdn.codementor.io/assets/loading_w_l-4dc2770c1cbfe77eb3f765ec858868d6.gif"
-                         alt="Loading w l"/>
-<span ng-hide='loading'>
-Schedule Now
-</span>
-<span ng-show='loading'>
-Scheduling...
-</span>
-                </a>
-            </div>
-        </div>
-    </div>
 </div>
 <div class='modal hide fade' connect-form='' id='modalConnectNow'>
     <form ng-submit="onSubmit($event)" style="margin:0px;" novalidate="novalidate" class="simple_form new_question"
@@ -3779,23 +3449,23 @@ Scheduling...
                     <div class='span12 center'>
                         <div class='rate-rating' style='display:inline-block;'>
                             <div ng-show='mentor.remaining.hours'>
-                                <img class='img-circle' ng-src='{{mentor.avatarUrl||mentor.avatar||mentor.avatar_url}}'
+                                <img class='img-circle' ng-src=''
                                      style='width:70px;'>
                                 <br>
 
                                 <p style='margin-top: 10px;'>
-                                    Remaining: {{mentor.remaining.hours}} {{(mentor.remaining.hours > 1) ? 'hours' : 'hour'}}
+                                    Remaining: {{mentor.remaining.hours}}
                                     <br>
                                     (Long-term Membership)
                                 </p>
                             </div>
                             <div ng-hide='mentor.remaining.hours' style='font-size: 18px;'>
-                                <img class='img-circle' ng-src='{{mentor.avatarUrl||mentor.avatar||mentor.avatar_url}}'
+                                <img class='img-circle' ng-src=''
                                      style='width:50px;margin-right:5px;float: left;'>
 
                                 <div class='rate-info' style='padding: 5px 0px 0px 65px;'>
                                     <strong>
-                                        ${{ (mentor.special_rate.rate>=0)? mentor.special_rate.rate : mentor.default_rate }}
+                                        jhkujk
                                     </strong>
                                     <small class='muted' ng-show='mentor.special_rate.reason'>
                                         ({{mentor.special_rate.reason}})
@@ -3854,7 +3524,7 @@ Scheduling...
                                 <i class='fa fa-check-square-o' ng-switch-when='false'></i>
                             </div>
                             <div class='detail'>
-                                <b style="color:#149290">The first free {{mentor.free_length/60}} minutes</b> will start
+                                <b style="color:#149290">The first free {{mentor.free_length}} minutes</b> will start
                                 after the preview period. Afterwards, you’ll be billed in per-minute increments.
                             </div>
                         </label>
@@ -3867,7 +3537,7 @@ Scheduling...
                             </div>
                             <div class='detail'>
                                 <b style="color:#e84d3d">The minimum charge is
-                                    ${{ (mentor.special_rate.rate>=0)? mentor.special_rate.rate : mentor.default_rate }}
+
                                     for the first 15 minutes</b> of the paid session. Afterwards, you’ll be billed in
                                 per-minute increments.
                             </div>
@@ -3881,7 +3551,7 @@ Scheduling...
                             </div>
                             <div class='detail'>
                                 <b style="color:#e84d3d">A pre-authorization of
-                                    ${{ (mentor.special_rate.rate >= 0)? mentor.special_rate.rate : mentor.default_rate }}
+
                                     will be made</b> on your card (this is not a charge). Your card will only be charged
                                 after your session is complete.
                             </div>
@@ -3920,7 +3590,7 @@ Connecting...
     })
 </script>
 
-<script src="https://cdn.codementor.io/assets/inline/home/dashboard-fa6a38912e1857c3d85411bdc01dcc38.js"></script>
+<script src="../../../public/js/userjs/dashboard.js"></script>
 <script src="https://cdn.codementor.io/assets/inline/home/mentee_dashboard-ab453c4e09865e4326407102da43099d.js"></script>
 
 {{outlet}}

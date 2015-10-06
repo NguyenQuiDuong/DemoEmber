@@ -18,9 +18,10 @@ Router.map(function () {
   });
   this.route('experts', function () {
     this.route('webprogram');
+
   });
-  this.route('chatroom');
   this.route('experts\\webprogram\\ruby');
+
 
   this.route('user\\beydogan');
   this.route('expert');

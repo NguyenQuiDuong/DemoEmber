@@ -19,7 +19,6 @@ Router.map(function () {
   this.route('experts', function () {
     this.route('webprogram');
   });
-  this.route('experts-notlogin');
   this.route('chatroom');
   this.route('experts\\webprogram\\ruby');
 

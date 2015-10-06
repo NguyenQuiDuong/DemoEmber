@@ -24,7 +24,7 @@ module.exports = function(environment) {
       'font-src': "'self' data: use.typekit.net",
       'connect-src': "'self'",
       'img-src': "'self' www.facebook.com www.codementor.io cdn.codementor.io",
-      'style-src': "'self' 'unsafe-inline' use.typekit.net",
+      'style-src': "'self' 'unsafe-inline' use.typekit.net netdna.bootstrapcdn.com",
       'frame-src': "s-static.ak.facebook.com static.ak.facebook.com www.facebook.com"
     },
   };

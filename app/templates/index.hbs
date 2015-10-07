@@ -6,7 +6,7 @@
             <a class='close' data-dismiss='alert'>×</a>
             <span>{{alert.msg}}</span>
             <span msg-html-unsafe='alert.msgHtmlUnsafe'></span>
-            <a class='never-ask-again muted' href='https://www.codementor.io/www_codementor_default.html#'
+            <a class='never-ask-again muted' href='#'
                ng-click='Alert.neverAskAgain(alert.name)' style='padding-left:10px;text-decoration:underline;'>
                 Never ask again
             </a>
@@ -865,3 +865,82 @@ Loading ...
     </div>
 
 </div>
+
+<app-sound></app-sound>
+<div aria-hidden='true' aria-labelledby='myModalLabel' class='modal fade hide' id='signup-modal'
+     role='document' tabindex='-1'>
+    <div class='modal-header'>
+        <h3>
+            ụ mịa
+        </h3>
+    </div>
+    <div class='modal-body' style='overflow: hidden;'>
+
+        <div class='extra-info alter alert-success ng-cloak' ng-show='sf.extraInfo'>
+          {{sf.extraInfo}}
+        </div>
+        <div class='row-fluid'>
+            <div class='span5'>
+                <div class='leftBlock'>
+                    <p class='signup-txt'>
+                        <b>
+                            Codementor
+                        </b>
+                        your instant 1:1 expert mentor helping you in real time.
+                    </p>
+
+                    <div class='muted'>
+                        Have an account?
+                        <a href="sign-in.html">Sign In</a>
+                    </div>
+                    <div class='applyMentor'>
+                        <a class='side_link' href='https://www.codementor.io/mentor/apply'
+                           ng-hide='sf.becomeMentorLink===false'>Want to become a Codementor?</a>
+                    </div>
+                </div>
+            </div>
+            <div class='span7'>
+                <div class='menuSignUpForm'>
+                    <form class="simple_form form-inline" id="new_user"
+                          action="https://www.codementor.io/offers_signup?utm_campaign=&amp;utm_source=&amp;utm_medium="
+                          accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;"/><input
+                            type="hidden" name="authenticity_token"
+                            value="fLpehfze/sWUk6rnraZUWuzoKiebCx43h1QmmKx0stwnucR3CYhOrNXG24a2dR1TtrYyAaAfMggRCV/LWdxaEg=="/>
+
+                        <div class='sign_up_form'>
+                            <input label="false" class="string email required bigform input_email" type="email"
+                                   pattern=".*" placeholder="Email address" name="user[email]" id="user_email"/>
+                            <input class='hidden' name='is_offers' type='hidden' value='false'>
+                            <input class='hidden' name='is_refferral' type='hidden' value='false'>
+                            <input class='hidden' name='is_promotion' type='hidden' value='false'>
+                            <input class='hidden' name='promo_code' type='hidden' value=''>
+                            <input class='hidden' name='promotion_type' type='hidden'>
+                            <input class='hidden' name='utm_seo' type='hidden' value=''>
+                            <input class='hidden' name='utm_form' type='hidden' value='menu_new_form'>
+                            <input class='hidden' name='pending_msg_content' type='hidden' value=''>
+                            <input class='hidden' name='pending_msg_mentor' type='hidden' value=''>
+                            <input class='hidden' name='office_hour' type='hidden' value=''>
+
+                            <div class='action clearfix'>
+                                <input type="submit" name="commit" value="Sign Up" class="btn btn-primary pull-right"/>
+
+                                <div class='muted pull-right termOfService'>
+                                    By clicking the button, you agree to the
+                                    <a href='https://www.codementor.io/terms' target='_blank'>terms</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        $('#signup-modal').on('shown', function(){
+            $('#signup-modal input.email').focus();
+        });
+    });
+</script>

@@ -2599,7 +2599,8 @@ body.minibar .navbar-inner .nav li.active a:hover {
 }
 
 .navbar .brand > img {
-    height: 19px !important
+    height: 28px !important;
+    width: 250px !important
 }
 
 #signup-modal {
@@ -10094,7 +10095,7 @@ body .menu_new_v2 .container {
 }
 
 body .menu_new_v2 .container .brand {
-    padding: 13px 15px 17px 20px
+    /*padding: 13px 15px 17px 20px*/
 }
 
 body .menu_new_v2 .container .nav li.dropdown a.dropdown-toggle {

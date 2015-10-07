@@ -25,6 +25,17 @@ Router.map(function () {
 
   this.route('user\\beydogan');
   this.route('expert');
+  this.route('user\\dashboard-detail');
+  this.route('user\\dashboard-detail\\monthly');
+  this.route('user\\dashboard-detail\\confirmed-offline-helps');
+  this.route('user\\dashboard-detail\\active-requests');
+  this.route('user\\settings-detail\\edit');
+  this.route('user\\settings-detail\\blocked-users');
+  this.route('user\\settings-detail\\organization');
+  this.route('user\\settings-detail\\buy-credit');
+  this.route('user\\settings-detail\\referral');
+  this.route('user\\settings-detail\\payment-setting');
+  this.route('user\\settings-detail\\payments');
 });
 
 export default Router;

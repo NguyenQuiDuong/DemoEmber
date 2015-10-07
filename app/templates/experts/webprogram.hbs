@@ -1,2 +1,549 @@
-<h1>ABC</h1>
+<link rel="stylesheet" media="screen"
+      href="../../../public/css/home/directory-new.css"/>
+<link rel="stylesheet" media="screen"
+      href="../../../public/css/home/first_time_survey.css"/>
+<link rel="stylesheet" media="screen"
+      href="../../../public/css/home/first_time_ux.css"/>
+
+<div id='fb-root'></div>
+<div id='main' role='main' style='margin-top:0px;'>
+    <app-alert class='alert-error flash-message' ng-cloak='' ng-if='!User.hasWebRTC'>
+        Your current browser does not support live video chat; please use the latest version of <a target="_blank"
+                                                                                                   href="http://www.google.com/chrome">Google
+        Chrome</a> or <a target="_blank" href="http://mozilla.org/firefox">Mozilla Firefox</a>.
+    </app-alert>
+    <div check-time-zone=''></div>
+
+    <div class='alerts ng-cloak' ng-controller='AlertCtrl as alertCtrl'>
+        <div class='center alert flash-message topAlert' ng-class='alert.type' ng-repeat='alert in Alert.alerts'>
+            <a class='close' data-dismiss='alert'>×</a>
+            <span>{{alert.msg}}</span>
+            <span msg-html-unsafe='alert.msgHtmlUnsafe'></span>
+            <a class='never-ask-again muted' href='#' ng-click='Alert.neverAskAgain(alert.name)'
+               style='padding-left:10px;text-decoration:underline;'>
+                Never ask again
+            </a>
+        </div>
+    </div>
+
+    <div class='directory' ng-controller='DirectoryTopicCtrl as directory'>
+        <div class='topBlock'>
+            <div class='customizeContainer'>
+                <div class='row-fluid'>
+                    <div class='span9'>
+                        <h1 class='h1Title'>1:1 Coding Help from Web Programming Experts</h1>
+
+                        <p class='h1Description'>Get instant 1:1 web programming help from expert developers on
+                            Codementor. Experts
+                            on Codementor include book authors, creators of popular open source libraries, and engineers
+                            at well-known
+                            tech companies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='breadcrumb'>
+            <div class='customizeContainer'>
+                <div class='row-fluid'>
+                    <div class='span12'>
+                        <div :xmlns:v='http://rdf.data-vocabulary.org/#' class='innerBreadcrumb'>
+<span typeof='v:Breadcrumb'>
+<span typeof='v:Breadcrumb'>
+<a class='breadLink' href='/experts' property='v:title' rel='v:url'>
+    Expert Mentors
+</a>
+</span>
+<span class='sign'>
+&nbsp;›&nbsp;
+</span>
+<span typeof='v:Breadcrumb'>
+<span class='lastLink'>
+Web Programming
+</span>
+</span>
+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='searchBlock'>
+            <div class='customizeContainer'>
+                <div class='row-fluid'>
+                    <div class='span9'>
+                        <div class='searchBarContent'>
+                            <div class='control-group text required question_category_names tagInput'
+                                 ng-controller='CategoryCtrl as cc'
+                                 ng-init="cc.setDefaultRecommand(['ruby-on-rails','javascript','php','python','ios','android']);max=5;cc.initTags([])"
+                                 ng-keyup='detectSubmit($event)'>
+                                <div class='controls' ng-class='{requiredWarning:requiredWarning}'>
+                                    <tags-input max-tags='100' min-length='1' ng-model='tags'
+                                                on-tag-added='cc.onAddTag($tag)'
+                                                on-tag-removed='cc.onRemoveTag($tag)'
+                                                placeholder='Type category name (eg. JavaScript)'>
+                                        <auto-complete min-length='1' source='cc.loadTags($query)'></auto-complete>
+                                    </tags-input>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class='searchButton' ng-click='searchAndRedirect()'>
+                            Search
+                            <Input name='categories[]' ng-repeat='tag in tags'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='resultBlock' ng-class='{resultOpacity:isSearch}'>
+            <div class='customizeContainer'>
+                <div class='row-fluid'>
+                    <div class='span12'>
+                        <h2 class='subTitle'>Popular web programming topics</h2>
+                    </div>
+                </div>
+                <div class='row-fluid'>
+                    <div class='span3'>
+<span class='catBlock'>
+<span class='imgBlock'>
+<img alt='Ruby' src='image/category/category topic/ruby.png'>
+</span>
+<span class='catName'>
+Ruby
+</span>
+<p class='description'>
+    Ruby experts on Codementor can help you with topics including rubygems, rspec, regex, tdd and more. Working on a
+    Rails
+    or Sinatra app? Ruby...
+</p>
+<a class='linkBtn' href='/ruby-experts'>
+    Ruby Experts
+</a>
+</span>
+                    </div>
+                    <div class='span3'>
+<span class='catBlock'>
+<span class='imgBlock'>
+<img alt='JavaScript' src='image/category/category topic/javascript.png'>
+</span>
+<span class='catName'>
+JavaScript
+</span>
+<p class='description'>
+    JavaScript experts on Codementor can help you with front-end topics like ajax, json, dom, jquery and more. Working
+    on
+    a Node.js, Meteor, or an...
+</p>
+<a class='linkBtn' href='/javascript-experts'>
+    JavaScript Experts
+</a>
+</span>
+                    </div>
+                    <div class='span3'>
+<span class='catBlock'>
+<span class='imgBlock'>
+<img alt='AngularJS' src='image/category/category topic/angularjs.png'>
+</span>
+<span class='catName'>
+AngularJS
+</span>
+<p class='description'>
+    Angular experts on Codementor can help you with anything related to AngularJS including AngularJS directives,
+    AngularUI, performance optimization,...
+</p>
+<a class='linkBtn' href='/angularjs-experts'>
+    AngularJS Experts
+</a>
+</span>
+                    </div>
+                    <div class='span3'>
+<span class='catBlock'>
+<span class='imgBlock'>
+<img alt='Python' src='image/category/category topic/python (1).png'>
+</span>
+<span class='catName'>
+Python
+</span>
+<p class='description'>
+    Need help with Django, Flask, NumPy, or Google App Engine? Stuck with troubleshooting Python Regex? Python experts
+    on
+    Codementor include top...
+</p>
+<a class='linkBtn' href='/python-experts'>
+    Python Experts
+</a>
+</span>
+                    </div>
+                </div>
+                <div class='row-fluid'>
+                    <div class='span3'>
+<span class='catBlock'>
+<span class='imgBlock'>
+<img alt='PHP' src='image/category/category topic/php.png'>
+</span>
+<span class='catName'>
+PHP
+</span>
+<p class='description'>
+    PHP experts on Codementor can help you with anything from CodeIgniter, Zend, CakePHP, Symfony2, to WordPress. Our
+    experts include book authors...
+</p>
+<a class='linkBtn' href='/php-experts'>
+    PHP Experts
+</a>
+</span>
+                    </div>
+                    <div class='span3'>
+<span class='catBlock'>
+<span class='imgBlock'>
+<img alt='HTML/CSS' src='image/category/category topic/html_css.png'>
+</span>
+<span class='catName'>
+HTML/CSS
+</span>
+<p class='description'>
+    HTML CSS experts on Codementor can help you with front-end web development topics like div, html5, forms, css3,
+    Bootstrap, and more.
+</p>
+<a class='linkBtn' href='/html_css-experts'>
+    HTML/CSS Experts
+</a>
+</span>
+                    </div>
+                    <div class='span3'>
+<span class='catBlock'>
+<span class='imgBlock'>
+<img alt='jQuery' src='image/category/category topic/jquery.png'>
+</span>
+<span class='catName'>
+jQuery
+</span>
+<p class='description'>
+    Get live 1:1 help from jQuery experts on Codementor.
+</p>
+<a class='linkBtn' href='/jquery-experts'>
+    jQuery Experts
+</a>
+</span>
+                    </div>
+                    <div class='span3'>
+<span class='catBlock'>
+<span class='imgBlock'>
+<img alt='Ruby on Rails' src='image/category/category topic/ruby-on-rails.png'>
+</span>
+<span class='catName'>
+Ruby on Rails
+</span>
+<p class='description'>
+    Are you looking for expert help with activerecord, devise, rspec, heroku? Are you working on a Ruby on Rails app?
+    Ruby
+    on Rails experts on...
+</p>
+<a class='linkBtn' href='/ruby-on-rails-experts'>
+    Ruby on Rails Experts
+</a>
+</span>
+                    </div>
+                </div>
+                <div class='row-fluid'>
+                    <div class='span12'>
+                        <h2 class='subTitle'>All web programming topics</h2>
+                    </div>
+                </div>
+                <div class='row-fluid'>
+                    <div class='span4'>
+                        <a class='moreCatBlock' href='/ruby-experts'>
+                            <img alt='Ruby' class='catImg' src='/image/experts/ruby-expert-help.png'>
+<span class='catName'>
+Ruby
+</span>
+                        </a>
+                    </div>
+                    <div class='span4'>
+                        <a class='moreCatBlock' href='/javascript-experts'>
+                            <img alt='JavaScript' class='catImg'
+                                 src='image/experts/javascript-expert-help.png'>
+<span class='catName'>
+JavaScript
+</span>
+                        </a>
+                    </div>
+                    <div class='span4'>
+                        <a class='moreCatBlock' href='/angularjs-experts'>
+                            <img alt='AngularJS' class='catImg' src='/image/experts/angular-js-expert-help.png'>
+<span class='catName'>
+AngularJS
+</span>
+                        </a>
+                    </div>
+                </div>
+                <div class='row-fluid'>
+                    <div class='span4'>
+                        <a class='moreCatBlock' href='/python-experts'>
+                            <img alt='Python' class='catImg' src='/image/experts/python-expert-help.png'>
+<span class='catName'>
+Python
+</span>
+                        </a>
+                    </div>
+                    <div class='span4'>
+                        <a class='moreCatBlock' href='/php-experts'>
+                            <img alt='PHP' class='catImg' src='/image/experts/php-expert-help.png'>
+<span class='catName'>
+PHP
+</span>
+                        </a>
+                    </div>
+                    <div class='span4'>
+                        <a class='moreCatBlock' href='/html_css-experts'>
+                            <img alt='HTML/CSS' class='catImg' src='image/experts/html-css-expert-help.png'>
+<span class='catName'>
+HTML/CSS
+</span>
+                        </a>
+                    </div>
+                </div>
+                <div class='row-fluid'>
+                    <div class='span4'>
+                        <a class='moreCatBlock' href='/jquery-experts'>
+                            <img alt='jQuery' class='catImg' src='image/experts/jquery-expert-help.png'>
+<span class='catName'>
+jQuery
+</span>
+                        </a>
+                    </div>
+                    <div class='span4'>
+                        <a class='moreCatBlock' href='/ruby-on-rails-experts'>
+                            <img alt='Ruby on Rails' class='catImg'
+                                 src='image/experts/ruby-on-rails-expert-help.png'>
+<span class='catName'>
+Ruby on Rails
+</span>
+                        </a>
+                    </div>
+                    <div class='span4'>
+                        <a class='moreCatBlock' href='/django-experts'>
+                            <img alt='Django' class='catImg' src='/image/experts/django-expert-help.png'>
+<span class='catName'>
+Django
+</span>
+                        </a>
+                    </div>
+                </div>
+                <div class='row-fluid'>
+                    <div class='span4'>
+                        <a class='moreCatBlock' href='/nodejs-experts'>
+                            <img alt='Node.js' class='catImg' src='image/experts/node-js-expert-help.png'>
+<span class='catName'>
+Node.js
+</span>
+                        </a>
+                    </div>
+                    <div class='span4'>
+                        <a class='moreCatBlock' href='/coffeescript-experts'>
+                            <img alt='CoffeeScript' class='catImg'
+                                 src='image/experts/coffeescript-expert-help.png'>
+<span class='catName'>
+CoffeeScript
+</span>
+                        </a>
+                    </div>
+                    <div class='span4'>
+                        <a class='moreCatBlock' href='/ember-js-experts'>
+                            <img alt='Ember.js' class='catImg' src='/image/experts/ember-js-expert-help.png'>
+<span class='catName'>
+Ember.js
+</span>
+                        </a>
+                    </div>
+                </div>
+                <div class='row-fluid'>
+                    <div class='span4'>
+                        <a class='moreCatBlock' href='/backbonejs-experts'>
+                            <img alt='Backbone.js' class='catImg'
+                                 src='/image/experts/backbone-js-expert-help.png'>
+<span class='catName'>
+Backbone.js
+</span>
+                        </a>
+                    </div>
+                    <div class='span4'>
+                        <a class='moreCatBlock' href='/meteor-experts'>
+                            <img alt='Meteor' class='catImg' src='/image/experts/meteor-expert-help.png'>
+<span class='catName'>
+Meteor
+</span>
+                        </a>
+                    </div>
+                    <div class='span4'>
+                        <a class='moreCatBlock' href='/flask-experts'>
+                            <img alt='Flask' class='catImg' src='/image/experts/flask-expert-help.png'>
+<span class='catName'>
+Flask
+</span>
+                        </a>
+                    </div>
+                </div>
+                <div class='row-fluid'>
+                    <div class='span4'>
+                        <a class='moreCatBlock' href='/scala-experts'>
+                            <img alt='Scala' class='catImg' src='/image/experts/scala-expert-help.png'>
+<span class='catName'>
+Scala
+</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script id='modal/first-time-ux.html' type='text/ng-template'>
+        <div class='modal-body'>
+            <h3>How Codementor Works</h3>
+
+            <div class='row-fluid' ng-show='modal.step==0'>
+                <div class='span12 show-box'>
+                    <h4>
+                        <small>Search Mentors by Categories.</small>
+                    </h4>
+                    <div class='cover'>
+                        <img ng-src='/assets/img_new/search2.gif' width='400'>
+                    </div>
+                </div>
+            </div>
+            <div class='row-fluid ng-cloak' ng-show='modal.step==1'>
+                <div class='span12 show-box'>
+                    <h4>
+                        <small>Chat with mentor and "Start Session"</small>
+                    </h4>
+                    <div class='cover'>
+                        <img ng-src='/assets/img_new/chat.gif' width='400'>
+                    </div>
+                </div>
+            </div>
+            <div class='dotdot'>
+                <span class='dot' ng-class='{active:modal.step==0}' ng-click='modal.step=0'></span>
+                <span class='dot' ng-class='{active:modal.step==1}' ng-click='modal.step=1'></span>
+            </div>
+            <a class='skip' href='#' ng-click='$close()'>
+                Skip
+            </a>
+            <a class='next' href='#' ng-click='modal.step=1' ng-show='modal.step==0'>
+                <i class='icon-chevron-right'></i>
+            </a>
+            <a class='previous ng-cloak' href='#' ng-click='modal.step=0' ng-show='modal.step==1'>
+                <i class='icon-chevron-left'></i>
+            </a>
+        </div>
+    </script>
+    <script id='modal/first-time-survey.html' type='text/ng-template'>
+        <div class='first-time-survey-main'>
+            <div class='hd'>
+                <h3>
+                    Set up your profile
+                </h3>
+
+                <div class='step-tab-bar'>
+                    <div class='step-ball' ng-class='{active:modal.step==$index, done:modal.ok[$index]}'
+                         ng-repeat='i in [1,2,3]'>
+                        <div class='ball'>
+<span>
+  {{i}}
+</span>
+                            <i class='icon-ok'></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='bd'>
+                <div class='step-contents'>
+                    <div class='step-content' ng-show='modal.step==0'>
+                        <div class='survey-question'>
+                            <h3>
+                                Which topics would you need help with?
+                            </h3>
+
+                            <div class='selector topics' ng-init='modal.topicInit()'>
+                                <div class='option topic' ng-class='{active:topic.selected}'
+                                     ng-click='modal.selectTopic(topic)'
+                                     ng-repeat='topic in modal.topics'>
+                                  {{topic.name}}
+                                </div>
+                            </div>
+                            <div class='controls' ng-class='{requiredWarning:requiredWarning}'
+                                 ng-controller='CategoryCtrl as cc'
+                                 ng-init='enableRecommand=false;'>
+                                <tags-input min-length='1' ng-model='tags' on-tag-added='cc.onAddTag($tag)'
+                                            on-tag-removed='cc.onRemoveTag($tag)' placeholder='Other topics'>
+                                    <auto-complete max-results-to-show='3' min-length='1'
+                                                   source='cc.loadTags($query)'></auto-complete>
+                                </tags-input>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class='step-content' ng-show='modal.step==1'>
+                        <div class='survey-question q2'>
+                            <h3>
+                                What's your general technical experience level?
+                            </h3>
+
+                            <div class='selector'>
+                                <div class='option' ng-class='{active:modal.Q2selected==q.id}'
+                                     ng-click='modal.selectQ2(q, $event)'
+                                     ng-repeat='q in modal.Q2'>
+                                    <input name='exp_level' ng-click='modal.selectQ2(q, $event)'
+                                           ng-model='modal.Q2selected'
+                                           ng-value='q.id' type='radio'>
+                                  {{q.title}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='step-content' ng-show='modal.step==2'>
+                        <div class='survey-question q3'>
+                            <h3>
+                                Why would you like to use Codementor?
+                            </h3>
+
+                            <div class='selector'>
+                                <div class='option' ng-class='{active:q.selected}' ng-click='modal.selectQ(q, $event)'
+                                     ng-repeat='q in modal.Q3'>
+                                    <input ng-click='modal.selectQ(q, $event)' ng-model='q.selected' type='checkbox'>
+                                  {{q.title}}
+                                </div>
+                            </div>
+                            <div class='other-text'>
+                                <textarea ng-model='modal.Q3other' placeholder='Other'></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='ft text-right'>
+                <button class='btn' ng-click='modal.skip()'>
+                    Skip
+                </button>
+                <button class='btn ng-cloak' ng-click='modal.previous()' ng-show='modal.step&gt;0'>
+                    <div class='icon-chevron-left'></div>
+                    Previous
+                </button>
+                <button class='btn' ng-class="{'btn-primary':modal.ok[modal.step]}" ng-click='modal.next()'
+                        ng-hide='modal.step==2'>
+                    Next
+                    <div class='icon-chevron-right'></div>
+                </button>
+                <button class='btn' ng-class="{'btn-primary':modal.ok[modal.step]}" ng-click='modal.submit()'
+                        ng-show='modal.step==2'>
+                    Done
+                </button>
+            </div>
+        </div>
+    </script>
+
+    <script>
+        $("#freeHint").tooltip("hide");
+    </script>
+
+</div>
 {{outlet}}

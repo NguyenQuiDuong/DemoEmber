@@ -1,0 +1,86 @@
+<link rel="stylesheet" media="screen"
+      href="../../../../public/css/user/setting-menu.css"/>
+<div id='main' role='main'>
+    <div class='container'>
+        <app-alert class='alert-error' ng-cloak='' ng-if='!User.hasWebRTC'>
+            Your current browser does not support live video chat; please use the latest version of <a target="_blank"
+                                                                                                       href="http://www.google.com/chrome">Google
+            Chrome</a> or <a target="_blank" href="http://mozilla.org/firefox">Mozilla Firefox</a>.
+        </app-alert>
+        <div check-time-zone=''></div>
+
+        <div class='alerts ng-cloak' ng-controller='AlertCtrl as alertCtrl'>
+            <div class='center alert flash-message topAlert' ng-class='alert.type' ng-repeat='alert in Alert.alerts'>
+                <a class='close' data-dismiss='alert'>×</a>
+                <span>{{alert.msg}}</span>
+                <span msg-html-unsafe='alert.msgHtmlUnsafe'></span>
+                <a class='never-ask-again muted' href='#' ng-click='Alert.neverAskAgain(alert.name)'
+                   style='padding-left:10px;text-decoration:underline;'>
+                    Never ask again
+                </a>
+            </div>
+        </div>
+
+        <div class='row-fluid'>
+            <div class='span3'>
+                <div class='menu well'>
+                    <ul class='nav'>
+                        <!-- - if current_user.is_mentor? -->
+                        <!-- = nav_link "Codementor Monthly", users_long_term_mentorship_path -->
+                        <li class='navHeader'>
+                            <i class='icon-cog'></i>
+                            Settings
+                        </li>
+                        <li><a href="../settings.hbs">Profile Settings</a></li>
+                        <li><a href="edit.hbs">Account Settings</a></li>
+                        <li class="active"><a href="blocked-users.hbs">Blocked Users</a></li>
+                        <li><a href="organization.hbs">Organization</a></li>
+                        <li class='navHeader'>
+                            <i class='icon-credit-card'></i>
+                            Billing
+                        </li>
+                        <li><a href="buy-credit.hbs">Buy Credit</a></li>
+                        <li><a href="referral.hbs">Earn Free Credit</a></li>
+                        <li><a href="payment-setting.hbs">Payment Method</a></li>
+                        <li><a href="payments.hbs">Payment History</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class='span9'>
+                <div class='well'>
+                    <legend>
+                        Blocked Users
+                    </legend>
+                    <div class='blocked-users'>
+                        <p>No blocked users as of now.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $('.unblock').click(function (e) {
+                    var username = $(e.currentTarget).data('username');
+
+                    $.post('/api/users/unblock/' + username).success(function () {
+                        $('.blocked-user[data-username="' + username + '"]').remove();
+
+                        // Trigger event on the $rootScope
+                        $('html').scope().$broadcast('UnblockUser', username);
+
+                        if ($('.blocked-user').length == 0) {
+                            $('.blocked-users p').show();
+                        }
+                    }).error(function () {
+                        //
+                    });
+
+                });
+            });
+        </script>
+
+    </div>
+</div>
+
+{{outlet}}

@@ -1,2 +1,306 @@
+<div id="main" role="main">
+    <div class="container">
 
+        <div check-time-zone=""></div>
+
+          <div class="alerts ng-scope" >
+            <div class="center alert flash-message topAlert ng-scope alert-success cookie-alert" >
+              <a class="close" data-dismiss="alert">×</a>
+              <span class="ng-binding"></span>
+              <span msg-html-unsafe="alert.msgHtmlUnsafe"><span class="ng-scope">Hãy chắc chắn rằng thiết lập của bạn đúng!  Vui lòng </span><a href="/session?intro=true" target="_blank" class="ng-scope">dùng thử nghiệm</a><span class="ng-scope"> và </span><a href="#"  class="ng-scope">thiết lập thông tin thanh toán</a><span class="ng-scope">.</span></span>
+              <a class="never-ask-again muted" href="#"  style="padding-left:10px;text-decoration:underline;">
+                Không hỏi lại
+              </a>
+            </div>
+          </div>
+
+          <div class="row-fluid">
+              <div class="span10 offset1 users-buy-credit ng-scope" >
+                <div class="well">
+                    <legend>
+                        Hóa đơn
+                        <small>
+                            Mua tín dụng trả trước và nhận được thêm tín dụng miễn phí!
+                        </small>
+                    </legend>
+                    <small class="muted" style="margin-top:-14px; margin-bottom:15px;display:block;">
+
+                    </small>
+                    <div class="pricing-plan" >
+                        <div class="pricing-table" data-selected-credit="" data-selected-plan="" data-selected-spend="">
+                            <div class="col s30 plan" data-credit="0" data-plan="plan1" data-spend="0">
+                                <div class="col-title">
+                                    <h3>
+                                        0 Tín dụng miễn phí
+                                    </h3>
+                                </div>
+                                <div class="col-hd payg">
+                                    Trả theo thời lượng công việc
+                                </div>
+                                <div class="col-bd">
+                                    Bạn sẽ không bị tính phí cho đến khi bạn hoàn thành một phiên.
+                                </div>
+                            </div>
+                            <div class="col s40 plan" data-credit="103" data-plan="plan21" data-spend="100">
+                                <div class="col-title">
+                                    <h3>
+                                        $100 + 3 Tín dụng miễn phí
+                                    </h3>
+                                </div>
+                                <div class="col-hd">
+                                  <span class="strong">$100</span>
+                                  <span style="font-size: 18px;">
+                                  Nhận được 3$ tín dụng miễn phí
+                                  </span>
+                                </div>
+                                <div class="col-bd">
+                                    <strong>
+                                        Lựa chọn phổ biến
+                                    </strong>
+                                    <br>Mua $100 tín dụng và nhận được thêm $3 tín dụng miễn phí
+                                </div>
+                            </div>
+                            <div class="col s30 plan" data-credit="210" data-plan="plan22" data-spend="200">
+                                <div class="col-title">
+                                    <h3>
+                                        $200 + 10 Tín dụng miễn phí
+                                    </h3>
+                                </div>
+                                <div class="col-hd">
+                                  <span class="strong">$200</span>
+                                  <span style="font-size: 18px;">
+                                  Nhận được $10 tín dụng miễn phí
+                                  </span>
+                                </div>
+                                <div class="col-bd">
+                                    <strong>
+                                        Giao dịch tốt nhất.
+                                    </strong>
+                                    <br>
+                                    Mua $200 tín dụng và nhận được thêm $10 tín dụng miễn phí
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br>
+                    <div class="payment-method-options">
+                        <label class="radio inline disabled" >
+                            <input name="payWith"   type="radio" value="card" class="ng-pristine ng-untouched ng-valid" disabled="disabled">
+                            <img alt="Pay with Credit Card" class="cc-img" src="/assets/credit-card-logos.png">
+                        </label>
+                        <label class="radio inline disabled" >
+                            <input name="payWith"  type="radio" value="paypal" class="ng-pristine ng-untouched ng-valid" disabled="disabled">
+                            <img alt="Pay with PayPal" class="paypal-img" src="/assets/paypal-logo.png">
+                        </label>
+                        <label class="radio inline disabled" >
+                            <input name="payWith"  type="radio" value="bitcoin" class="ng-pristine ng-untouched ng-valid" disabled="disabled">
+                            <img alt="Pay with Bitcoin" class="bitcoin-img" src="/assets/bitcoin-logo.png">
+                        </label>
+                    </div>
+                    <!-- No payment method set -->
+                    <div class="payment-method pay-with-card" >
+                        <hr>
+                        <div class="submit">
+                            <button class="btn disabled">
+                                Buy Credit
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Card -->
+                    <div class="payment-method pay-with-card ng-hide">
+                        <h3>
+                            <i class="icon-credit-card"></i>
+                            <!-- No card on file -->
+                            Chi tiết thẻ
+                            <small>
+                                Thông tin thanh toán cần thiết để hoàn tất đăng ký.
+                            </small>
+                        </h3>
+                        <div class="clearfix">
+                            <form id="payment-form" class="form-horizontal ng-pristine ng-valid" stripe-form="" action="/users/save_payment" accept-charset="UTF-8" method="post">
+                                <hr style="margin-top:0px;">
+                                <div data-new-card="enabled" id="cc_form">
+                                    <div class="payment-errors alert alert-error hide"></div>
+                                    <div class="row-fluid">
+                                        <div class="span6">
+                                            <div class="form-row">
+                                                <label>
+                                                    <strong>Credit Card Number:</strong>
+                                                </label>
+                                                <input class="long cc-number" data-stripe="number" placeholder="Card number" size="20" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="span6">
+                                            <div class="form-row">
+                                                <label>
+                                                    <strong>Expires:</strong>
+                                                </label>
+                                                <input data-stripe="exp-month" placeholder="MM" size="2" style="width: 30px; display: inline; " type="text">
+                                                <span>/</span>
+                                                <input data-stripe="exp-year" placeholder="YYYY" size="4" style="width: 60px; " type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row-fluid">
+                                        <div class="span6">
+                                            <div class="form-row">
+                                                <label>
+                                                    <strong>Name on Card:</strong>
+                                                </label>
+                                                <input class="long" data-stripe="name" placeholder="Name" size="20" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="span6">
+                                            <div class="form-row">
+                                                <label>
+                                                    <strong>Card code:</strong>
+                                                </label>
+                                                <input class="cc-cvc" data-stripe="cvc" placeholder="CVC" size="4" style="width: 90px; " type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr style="margin-top:30px">
+                                </div>
+                                <div class="submit">
+                                    <button class="btn" type="submit">Buy Credit</button>
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="payment-service-information">
+                            <small>
+                                <dl>
+                                    <dt>Thẻ thanh toán ủy quyền</dt>
+                                    <dd>Bạn có thể thấy $1 phí thời hạn trên thẻ tín dụng của bạn. Đây không phải là một chi phí thực tế - nó chỉ để xác nhận thông tin thanh toán của bạn - sẽ đảo ngược ngay lập tức.</dd>
+                                </dl>
+                            </small>
+                            <small>
+                                <dl>
+                                    <dt>Tại sao tôi nên mua tín dụng trả trước?</dt>
+                                    <dd>Bạn nhận được tín dụng trả trước với mức giảm giá để chi trả cho các buổi Codementor.</dd>
+                                    <dd>Các khoản tín dụng chưa chi sẽ tái đầu tư trong 12 tháng.</dd>
+                                </dl>
+                            </small>
+                            <small>
+                                <dl>
+                                    <dt>Payment Powered by Stripe</dt>
+                                    <dd>
+                                        Chúng tôi không lưu trữ thông tin thẻ tín dụng của bạn trên hệ thống của chúng tôi.
+                                        Chúng tôi sử dụng
+                                        <a target="_blank" href="https://stripe.com">Stripe</a>
+                                        để xử lý tất cả các giao dịch thanh toán.
+                                        <br>
+                                        <br>
+                                        <center>
+                                            <img src="https://cdn.codementor.io/assets/stripe-badge2-9e17c82db3cbc1269f7acf5730d91b04.png" alt="Stripe badge2">
+                                        </center>
+                                    </dd>
+                                </dl>
+                            </small>
+                        </div>
+
+
+                    </div>
+                    <!-- Paypal -->
+                    <div class="payment-method pay-with-paypal ng-hide" >
+                        <hr>
+                        <div class="submit">
+                            <button class="btn disabled" >
+                                Buy Credit
+                            </button>
+                            <button class="btn disabled ng-hide">
+                                <i class="icon-spin icon-spinner"></i>
+                                Loading
+                            </button>
+                            <a class="btn btn-primary ng-scope ng-hide"  >Mua thẻ tín dụng</a><a class="btn btn-primary ng-scope ng-hide">Buy Credit</a>
+                        </div>
+                        <div class="payment-service-information">
+                            <small>
+                                <dl>
+                                    <dt>Tại sao tôi nên mua tín dụng trả trước?</dt>
+                                    <dd>Bạn nhận được tín dụng trả trước với mức giảm giá để chi trả cho các buổi Codementor.</dd>
+                                    <dd>Các khoản tín dụng chưa chi sẽ tái đầu tư trong 12 tháng.</dd>
+                                </dl>
+                            </small>
+                        </div>
+                    </div>
+                    <!-- Bitcoin -->
+                    <div class="payment-method pay-with-bitcoin ng-hide" >
+                        <hr>
+                        <!-- ngRepeat: b in coinbaseButtons --><div class="submit ng-scope" >
+                        <button class="btn btn-primary ng-hide" data-code="175466fa3784ceb3e34ee4ba48721f64" >
+                            Buy Credit
+                        </button>
+                    </div><!-- end ngRepeat: b in coinbaseButtons --><div class="submit ng-scope" >
+                        <button class="btn btn-primary ng-hide" data-code="fb52649fdbd89a97ab583abd62efaf68" >
+                            Buy Credit
+                        </button>
+                    </div>
+                        <div class="submit ng-hide" >
+                            <button class="btn disabled">
+                                <i class="icon-spin icon-spinner"></i>
+                                Loading
+                            </button>
+                        </div>
+                        <div class="hide ng-scope" >
+                        <span  class="ng-scope">
+                          <iframe src="https://www.coinbase.com/buttons/175466fa3784ceb3e34ee4ba48721f64?code=175466fa3784ceb3e34ee4ba48721f64&amp;referrer=www.codementor.io" id="coinbase_button_iframe_175466fa3784ceb3e34ee4ba48721f64" name="coinbase_button_iframe_175466fa3784ceb3e34ee4ba48721f64" style="width: 211px; height: 46px; border: none; overflow: hidden;" scrolling="no" allowtransparency="true" frameborder="0"></iframe>
+                        </span>
+                        <span class="ng-scope">
+                          <iframe src="https://www.coinbase.com/buttons/fb52649fdbd89a97ab583abd62efaf68?code=fb52649fdbd89a97ab583abd62efaf68&amp;referrer=www.codementor.io" id="coinbase_button_iframe_fb52649fdbd89a97ab583abd62efaf68" name="coinbase_button_iframe_fb52649fdbd89a97ab583abd62efaf68" style="width: 211px; height: 46px; border: none; overflow: hidden;" scrolling="no" allowtransparency="true" frameborder="0"></iframe>
+                        </span>
+                        <!-- ngIf: coinbaseButtonScriptLoaded --><script  type="text/javascript" class="ng-scope" src="https://www.coinbase.com/assets/button.js"></script><!-- end ngIf: coinbaseButtonScriptLoaded -->
+                    </div><!-- end ngIf: coinbaseButtons -->
+                        <div class="payment-service-information">
+                            <small>
+                                <dl>
+                                    <dt>Tại sao tôi nên mua tín dụng trả trước?</dt>
+                                    <dd>Bạn nhận được tín dụng trả trước với mức giảm giá để chi trả cho các buổi Codementor.</dd>
+                                    <dd>Các khoản tín dụng chưa chi sẽ tái đầu tư trong 12 tháng.</dd>
+                                </dl>
+                            </small>
+                            <small>
+                                <dl>
+                                    <dt>Payment Powered by Coinbase</dt>
+                                    <dd>
+                                        Coinbase là ví Bitcoin phổ biến nhất trên thế giới.
+                                        <br>
+                                        <br>
+                                        <center>
+                                            <a href="https://www.coinbase.com/" target="_blank">
+                                                <img class="coinbase-logo" src="/assets/coinbase-logo.png">
+                                            </a>
+                                        </center>
+                                    </dd>
+                                </dl>
+                            </small>
+                        </div>
+                    </div>
+                    <br>
+                    <center>
+                        <h3>
+                            Đảm bảo hài lòng 100%.
+                        </h3>
+                        <p class="marketing-byline">
+                            Nếu bạn không hài lòng, chúng tôi vui lòng sửa lại hay hoàn lại tiền 100%.
+                        </p>
+                        <img src="/assets/guarantee_badge.jpg" style="width:150px;">
+                        <br>
+                        <br>
+                    </center>
+                    <br>
+                    <center>
+                        <small class="gray">
+                            Thẻ tín dụng US$, không được hoàn lại và sẽ hết hạn một năm kể từ mua cuối cùng của bạn.
+                        </small>
+                    </center>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
 {{outlet}}

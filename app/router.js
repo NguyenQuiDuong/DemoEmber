@@ -6,25 +6,10 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function () {
-  this.route('user', function () {
-    this.route('signin');
-    this.route('signup');
-    this.route('dashboard');
-    this.route('myprofile');
-    this.route('settings');
-    this.route('billing');
-    this.route('freecredits');
-    this.route('testsession');
-  });
-  this.route('experts', function () {
-    this.route('webprogram');
-
-  });
   this.route('experts\\webprogram\\ruby');
 
 
   this.route('user\\beydogan');
-  this.route('expert');
   this.route('user\\dashboard-detail');
   this.route('user\\dashboard-detail\\monthly');
   this.route('user\\dashboard-detail\\confirmed-offline-helps');
@@ -36,6 +21,18 @@ Router.map(function () {
   this.route('user\\settings-detail\\referral');
   this.route('user\\settings-detail\\payment-setting');
   this.route('user\\settings-detail\\payments');
+  this.route('user\\dashboard');
+  this.route('user\\index');
+  this.route('user', function() {
+    this.route('signin');
+    this.route('signout');
+    this.route('view',{path: '/view/:id'});
+  });
+
+  this.route('experts', function() {
+    this.route('webprogram');
+  });
+  this.route('user\\signin');
 });
 
 export default Router;

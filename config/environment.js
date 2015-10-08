@@ -21,14 +21,21 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'default-src': "'none'",
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval' code.jquery.com use.typekit.net connect.facebook.net maps.googleapis.com maps.gstatic.com",
-      'font-src': "'self' data: use.typekit.net",
-      'connect-src': "'self'",
+      'font-src': "'self' data: fonts.googleapis.com netdna.bootstrapcdn.com  fonts.gstatic.com",
+      'connect-src': "'self' 127.0.0.1:85 ",
       'img-src': "'self' www.facebook.com www.codementor.io cdn.codementor.io",
       'style-src': "'self' 'unsafe-inline' use.typekit.net netdna.bootstrapcdn.com",
       'frame-src': "s-static.ak.facebook.com static.ak.facebook.com www.facebook.com"
     },
   };
 
+  ENV['simple-auth'] = {
+    store: 'simple-auth-session-store:local-storage',
+    authenticationRoute: 'signin',
+    authorizer: 'simple-auth-authorizer:custom',
+    routeAfterAuthentication:'/user/view/1',
+    crossOriginWhitelist: ['http://127.0.0.1:85/']
+  };
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
@@ -47,6 +54,7 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+
   }
 
   if (environment === 'production') {

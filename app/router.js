@@ -27,12 +27,20 @@ Router.map(function () {
     this.route('signin');
     this.route('signout');
     this.route('view',{path: '/view/:id'});
+    this.route('dashboard');
   });
 
   this.route('experts', function() {
     this.route('webprogram');
   });
   this.route('user\\signin');
+  this.route('admin', function() {
+    this.route('experts', function() {
+      this.route('subjects', function() {
+        this.route('categories');
+      });
+    });
+  });
 });
 
 export default Router;

@@ -1,2 +1,914 @@
-<h1>sadasdsa</h1>
+<div id="main" role="main" style="margin-top:0px;">
+
+    <div check-time-zone=""></div>
+
+    <div class="alerts ng-scope">
+        <div class="center alert flash-message topAlert ng-scope alert-success cookie-alert">
+        <a class="close" data-dismiss="alert">×</a>
+        <span class="ng-binding"></span>
+            <span msg-html-unsafe="alert.msgHtmlUnsafe"><span class="ng-scope">Hãy chắc chắn rằng thiết lập của bạn đúng!  Vui lòng </span><a href="/session?intro=true" target="_blank" class="ng-scope">dùng thử nghiệm</a><span class="ng-scope"> và </span><a href="#"  class="ng-scope">thiết lập thông tin thanh toán</a><span class="ng-scope">.</span></span>
+            <a class="never-ask-again muted" href="#"  style="padding-left:10px;text-decoration:underline;">
+                Không hỏi lại
+        </a>
+    </div>
+    </div>
+
+    <div class="directory ng-scope">
+        <div class="topBlock">
+            <div class="customizeContainer">
+                <div class="row-fluid">
+                    <div class="span9">
+                        <h1 class="h1Title"><img class="header-img" src="/assets/category_icons/ruby-expert-help.png" alt="Ruby Expert Help"> Ruby Expert Help</h1>
+                        <p class="h1Description">Các chuyên gia Ruby trên Codementor có thể giúp bạn với các chủ đề bao gồm rubygems, rspec, regex, tdd và nhiều hơn nữa. Làm việc trên một ứng dụng Rails hoặc Sinatra? Các chuyên gia ruby trên Codementor có thể giúp bạn giải quyết được các vấn đề và khởi động các dự án của bạn nhanh hơn.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="breadcrumb">
+            <div class="customizeContainer">
+                <div class="row-fluid">
+                    <div class="span12">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="searchBlock">
+            <div class="customizeContainer">
+                <div class="row-fluid">
+                    <div class="span9">
+                        <div class="searchBarContent">
+                            <div class="control-group text required question_category_names tagInput ng-scope" >
+                                <div class="controls">
+                                    <tags-input max-tags="100" min-length="1"  on-tag-added="cc.onAddTag($tag)" on-tag-removed="cc.onRemoveTag($tag)" placeholder="Add category" class="ng-pristine ng-untouched ng-valid ng-isolate-scope ng-valid-max-tags ng-valid-min-tags ng-valid-leftover-text"><div class="host" tabindex="-1" ti-transclude-append=""><div class="tags"><ul class="tag-list"><li class="tag-item ng-scope"><ti-tag-item data="tag" class="ng-isolate-scope"></ti-tag-item></li></ul><input class="input ng-pristine ng-untouched ng-valid" autocomplete="off"  ti-bind-attrs="{type: options.type, placeholder: options.placeholder, tabindex: options.tabindex, spellcheck: options.spellcheck}" ti-autosize="" type="text" placeholder="Add category" spellcheck="true" style="width: 92px;"><span class="input" style="visibility: hidden; width: auto; white-space: pre; display: none;">Thêm danh mục</span></div>
+                                        <auto-complete min-length="1" source="cc.loadTags($query)" class="ng-scope ng-isolate-scope"><!-- ngIf: suggestionList.visible --></auto-complete>
+                                    </div></tags-input>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="searchButton" >
+                            Tìm kiếm
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="resultBlock" >
+            <div class="customizeContainer">
+                <div class="switchBlock" >
+                    <div class="row-fluid">
+                        <div class="span3">
+                            <div class="leftBlock">
+                                <div class="blockTitle">
+                                    Filters
+                                </div>
+                                <div class="blockContent">
+                                    <div class="row-fluid">
+                                        <div class="span12">
+                                            <label class="checkbox-filter first-free" >
+                                                <input type="checkbox" class="ng-pristine ng-untouched ng-valid">
+                                                <span class="freeSessionFilter">Khóa miễn phí</span>
+                                                <a data-original-title="Get first 15 minutes free exclusive to 1st-time users" data-placement="top" data-toggle="tooltip" href="#" id="freeHint">
+                                                    <i class="icon-question-sign"></i>
+                                                </a>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="blockContent">
+                                    <div class="row-fluid">
+                                        <div class="span12">
+                                            <div class="sub-title">Lọc theo giá trị</div>
+                                            <ul class="removeDecorate">
+                                                <li>
+                                                    <label class="radio filter active">
+                                                        <input name="rateFilter" type="radio" value="0" class="ng-pristine ng-untouched ng-valid">
+                                                        Tất cả người hướng dẫn
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label class="radio filter" >
+                                                        <input name="rateFilter"  type="radio" value="1" class="ng-pristine ng-untouched ng-valid">
+                                                       Dưới&nbsp;$10
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label class="radio filter" >
+                                                        <input name="rateFilter"  type="radio" value="2" class="ng-pristine ng-untouched ng-valid">
+                                                        $11 – $20
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label class="radio filter">
+                                                        <input name="rateFilter"  type="radio" value="3" class="ng-pristine ng-untouched ng-valid">
+                                                        $21 – $40
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label class="radio filter" >
+                                                        <input name="rateFilter"  type="radio" value="4" class="ng-pristine ng-untouched ng-valid">
+                                                        Trên&nbsp;&nbsp;$40
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="blockContent">
+                                    <div class="row-fluid">
+                                        <div class="span12">
+                                            <label class="checkbox-filter" >
+                                                <input type="checkbox" class="ng-pristine ng-untouched ng-valid">
+                                                Có sẵn
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="blockContent">
+                                    <div class="row-fluid">
+                                        <div class="span12">
+                                            <div class="sub-title language-filter">
+                                                Ngôn ngữ
+                                                <i class="icon-caret-right"></i>
+                                                <i class="icon-caret-down"></i>
+                                            </div>
+                                            <ul class="removeDecorate ng-scope ng-hide" >
+                                                <div class="language-search" >
+                                                    <div class="language-list" id="language_list">
+                                                    <label  class="ng-binding ng-scope">
+                                                        <input  type="checkbox" class="ng-pristine ng-untouched ng-valid">Anh
+                                                    </label>
+                                                    <label  class="ng-binding ng-scope">
+                                                        <input  type="checkbox" class="ng-pristine ng-untouched ng-valid">Tây Ban Nha
+                                                    </label>
+                                                    <label  class="ng-binding ng-scope">
+                                                        <input  type="checkbox" class="ng-pristine ng-untouched ng-valid">Trung Quốc
+                                                    </label>
+                                                    <label class="ng-binding ng-scope">
+                                                        <input  type="checkbox" class="ng-pristine ng-untouched ng-valid">Pháp
+                                                    </label>
+                                                    <label  class="ng-binding ng-scope">
+                                                        <input  type="checkbox" class="ng-pristine ng-untouched ng-valid">Đức
+                                                    </label>
+                                                    <label class="ng-binding ng-scope">
+                                                        <input  type="checkbox" class="ng-pristine ng-untouched ng-valid">Nga
+                                                    </label>
+                                                    <label class="ng-binding ng-scope">
+                                                        <input  type="checkbox" class="ng-pristine ng-untouched ng-valid">Nhật
+                                                    </label>
+                                                    </div>
+                                                    <div class="language-input">
+                                                        <a href="" >
+                                                            + Thêm
+                                                        </a>
+                                                        <div class="add-wrapper" style="float:left;">
+                                                            <input  type="checkbox" class="ng-hide">
+                                                        </div>
+                                                        <tags-input add-from-autocomplete-only="true" class="input-xxlarge ng-pristine ng-untouched ng-valid ng-isolate-scope ng-hide ng-valid-max-tags ng-valid-min-tags ng-valid-leftover-text" id="add-lang-btn"  on-tag-added="tagCtrl.onAddTag($tag); onLanguageChange({text:$tag.text, checked: true});" placeholder="Add Others" style="position: absolute; left: 17px;"><div class="host" tabindex="-1"  ti-transclude-append=""><div class="tags" ><ul class="tag-list"></ul><input class="input ng-pristine ng-untouched ng-valid" autocomplete="off"   ti-bind-attrs="{type: options.type, placeholder: options.placeholder, tabindex: options.tabindex, spellcheck: options.spellcheck}" ti-autosize="" type="text" placeholder="Add Others" spellcheck="true" style="width: 80px;"><span class="input" style="visibility: hidden; width: auto; white-space: pre; display: none;">Add Others</span></div>
+                                                            <auto-complete min-length="1" source="tagCtrl.loadTags($query)" class="ng-scope ng-isolate-scope" style="position: absolute; top: 30px; width: 100%;"></auto-complete>
+                                                        </div></tags-input>
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="leftBlock ng-hide" >
+                                <div class="blockTitle">
+                                    Danh mục
+                                </div>
+                                <div class="blockContent">
+                                    <div class="row-fluid">
+                                        <div class="span12">
+                                            <ul class="removeDecorate">
+                                                <div>
+                                                    <li class="linkBlock">
+
+                                                        <a class="catLink">
+                                                            <img class="categoryImg" src="/assets/category_icons/ruby-on-rails-expert-help.png">
+                                                            Ruby on Rails
+                                                            <small class="muted">(440)</small>
+                                                            <i class="icon-plus-sign muted plusLine pull-right"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="linkBlock">
+
+                                                        <a class="catLink" >
+                                                            <img class="categoryImg" src="/assets/category_icons/javascript-expert-help.png">
+                                                            JavaScript
+                                                            <small class="muted">(394)</small>
+                                                            <i class="icon-plus-sign muted plusLine pull-right"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="linkBlock">
+
+                                                        <a class="catLink" >
+                                                            <img class="categoryImg" src="/assets/category_icons/git-expert-help.png">
+                                                            Git
+                                                            <small class="muted">(350)</small>
+                                                            <i class="icon-plus-sign muted plusLine pull-right"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="linkBlock">
+
+                                                        <a class="catLink" >
+                                                            <img class="categoryImg" src="/assets/category_icons/no-icon.png">
+                                                            Html/css
+                                                            <small class="muted">(348)</small>
+                                                            <i class="icon-plus-sign muted plusLine pull-right"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="linkBlock">
+
+                                                        <a class="catLink" >
+                                                            <img class="categoryImg" src="/assets/category_icons/jquery-expert-help.png">
+                                                            jQuery
+                                                            <small class="muted">(244)</small>
+                                                            <i class="icon-plus-sign muted plusLine pull-right"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="linkBlock">
+
+                                                        <a class="catLink" >
+                                                            <img class="categoryImg" src="/assets/category_icons/coffeescript-expert-help.png">
+                                                            CoffeeScript
+                                                            <small class="muted">(144)</small>
+                                                            <i class="icon-plus-sign muted plusLine pull-right"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="linkBlock">
+
+                                                        <a class="catLink" >
+                                                            <img class="categoryImg" src="/assets/category_icons/sql-expert-help.png">
+                                                            SQL
+                                                            <small class="muted">(143)</small>
+                                                            <i class="icon-plus-sign muted plusLine pull-right"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="linkBlock">
+
+                                                        <a class="catLink">
+                                                            <img class="categoryImg" src="/assets/category_icons/mysql-expert-help.png">
+                                                            MySQL
+                                                            <small class="muted">(137)</small>
+                                                            <i class="icon-plus-sign muted plusLine pull-right"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="linkBlock">
+
+                                                        <a class="catLink">
+                                                            <img class="categoryImg" src="/assets/category_icons/php-expert-help.png">
+                                                            PHP
+                                                            <small class="muted">(103)</small>
+                                                            <i class="icon-plus-sign muted plusLine pull-right"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="linkBlock">
+
+                                                        <a class="catLink">
+                                                            <img class="categoryImg" src="/assets/category_icons/java-expert-help.png">
+                                                            Java
+                                                            <small class="muted">(99)</small>
+                                                            <i class="icon-plus-sign muted plusLine pull-right"></i>
+                                                        </a>
+                                                    </li>
+                                                </div>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="leftBlock" >
+                                <div class="blockTitle">
+                                    Ruby Related Categories
+                                </div>
+                                <div class="blockContent">
+                                    <div class="row-fluid">
+                                        <div class="span12">
+                                            <ul class="removeDecorate">
+                                                <li class="linkBlock">
+                                                    <a class="catLink" href="/ruby-on-rails-experts">
+                                                        Ruby on Rails
+                                                    </a>
+                                                </li>
+                                                <li class="linkBlock">
+                                                    <a class="catLink" href="/rspec-experts">
+                                                        Rspec
+                                                    </a>
+                                                </li>
+                                                <li class="linkBlock">
+                                                    <a class="catLink" href="/devise-experts">
+                                                        Devise
+                                                    </a>
+                                                </li>
+                                                <li class="linkBlock">
+                                                    <a class="catLink" href="/rubygems-experts">
+                                                        Rubygems
+                                                    </a>
+                                                </li>
+                                                <li class="linkBlock">
+                                                    <a class="catLink" href="/gem-experts" >
+                                                        Gem
+                                                    </a>
+                                                </li>
+                                                <li class="linkBlock">
+                                                    <a class="catLink" href="/sinatra-experts">
+                                                        Sinatra
+                                                    </a>
+                                                </li>
+                                                <li class="linkBlock">
+                                                    <a class="catLink" href="/rake-experts" >
+                                                        Rake
+                                                    </a>
+                                                </li>
+                                                <li class="linkBlock">
+                                                    <a class="catLink" href="/rvm-experts" >
+                                                        Rvm
+                                                    </a>
+                                                </li>
+                                                <li class="linkBlock">
+                                                    <a class="catLink" href="/capybara-experts">
+                                                        Capybara
+                                                    </a>
+                                                </li>
+                                                <li class="linkBlock">
+                                                    <a class="catLink" href="/capistrano-experts">
+                                                        Capistrano
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="leftBlock tutorialBlock ng-hide" >
+                                <div class="blockContent">
+                                    <div class="row-fluid">
+                                        <div class="span12">
+                                            <center>
+                                                <b>Học với người hướng dẫn</b>
+                                                <p class="subDescription">Hướng dẫn, chỉ dạy, video &amp; more</p>
+                                                <a class="btn btn-primary catLink ng-binding"  href="/false">
+                                                    Tìm hiểu sai
+                                                </a>
+                                            </center>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span9">
+                            <div class="resultHeader">
+                                <div class="row-fluid">
+                                    <div class="span8">
+                                        <div class="columnName">
+                                            Người hướng dẫn
+                                        </div>
+                                    </div>
+                                    <div class="span2">
+                                        <div class="columnName">
+                                            Chấm điểm
+                                        </div>
+                                    </div>
+                                    <div class="span2">
+                                        <div class="columnName">
+                                            Điểm
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mentorModule ng-hide" >
+                                <div class="row-fluid">
+                                    <div class="span12">
+                                        <h5>Hãy theo dõi!</h5>
+                                        <p>Chúng tôi không có đủ chuyên gia cố vấn Ruby tại thời điểm này.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div >
+                                <div class="mentorModule">
+                                    <div class="fake-mentor">
+                                        <div class="row-fluid">
+                                            <div class="span3">
+                                                <div class="fake-avatar"></div>
+                                                <div class="fake-rate"></div>
+                                            </div>
+                                            <div class="span9">
+                                                <div class="fake-info"></div>
+                                                <div class="fake-info"></div>
+                                                <div class="fake-info"></div>
+                                                <div class="fake-info"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div class="span1">
+                                            <img class="img-circle headImg" src="https://www.gravatar.com/avatar/401c9ea9450926cb7497750aebafd4f3?d=mm&amp;s=200">
+                                        </div>
+                                        <div class="span7">
+                                            <a class="name" href="/burgalon">
+                                                Alon Burg
+                                            </a>
+                                            <sup class="online">
+                                            <span class="offline">
+                                            </span>
+                                            </sup>
+                                            <div class="headLine">
+                                                <small>
+                                                    <em>Ruby</em> trên Rails khởi động bootstrapping
+                                                </small>
+                                            </div>
+                                            <div class="about">
+                                                Sẽ giúp khởi tạo dự án mới từ số không, hoặc giúp đỡ với việc tích hợp với các dự án lớn hơn, tối ưu hóa hiệu suất, chọn công cụ phù hợp, thiết lập một môi trường phát triển, thiết lập mới ...
+                                            </div>
+                                            <div class="expertise">
+                                                <div class="badge customizeBadge">
+                                                    <a class="removeDec" href="/ruby-experts">
+                                                        <em>Ruby</em>
+                                                    </a>
+                                                </div>
+                                                <div class="badge customizeBadge">
+                                                    <a class="removeDec" href="/javascript-experts">
+                                                        JavaScript
+                                                    </a>
+                                                </div>
+                                                <div class="badge customizeBadge">
+                                                    <a class="removeDec" href="/html_css-experts">
+                                                        HTML/CSS
+                                                    </a>
+                                                </div>
+                                                <div class="badge customizeBadge">
+                                                    <a class="removeDec" href="/android-experts">
+                                                        Android
+                                                    </a>
+                                                </div>
+                                                <div class="badge customizeBadge">
+                                                    <a class="removeDec" href="/git-experts">
+                                                        Git
+                                                    </a>
+                                                </div>
+                                                <div class="badge customizeBadge">
+                                                    <a class="removeDec" href="/mysql-experts">
+                                                        MySQL
+                                                    </a>
+                                                </div>
+                                                <div class="badge customizeBadge">
+                                                    <a class="removeDec" href="/mongodb-experts">
+                                                        MongoDB
+                                                    </a>
+                                                </div>
+                                                <div class="badge customizeBadge">
+                                                    <a class="removeDec" href="/ruby-on-rails-experts">
+                                                        Ruby on Rails
+                                                    </a>
+                                                </div>
+                                                <div class="badge customizeBadge">
+                                                    <a class="removeDec" href="/coffeescript-experts">
+                                                        CoffeeScript
+                                                    </a>
+                                                </div>
+                                                <div class="badge customizeBadge">
+                                                    <a class="removeDec" href="/jquery-experts">
+                                                        jQuery
+                                                    </a>
+                                                </div>
+                                                <div class="badge customizeBadge">
+                                                    <a class="removeDec" href="/ember-js-experts">
+                                                        Ember.js
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="hirable">
+                                                * Có sẵn
+                                            </div>
+                                        </div>
+                                        <div class="span2">
+                                        <span class="ratingNum">
+                                        5.0
+                                        </span>
+                                            <div class="rating">
+                                                <span> ★ </span>  <span> ★ </span>  <span> ★ </span>  <span> ★ </span>  <span> ★ </span>
+                                            </div>
+                                        </div>
+                                        <div class="span2 lastColumn">
+                                            <strong>$40.00</strong>
+                                            <small>/15 phút</small>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid dummy-layer">
+                                        <div class="span1"></div>
+                                        <div class="span7"></div>
+                                        <div class="span2"></div>
+                                        <div class="span2 lastColumn">
+                                            <div class="backDiv">
+                                                <a class="msgBtn" href="#">
+                                                    <i class="icon-envelope"></i>
+                                                    Lời nhắn
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div >
+                                <div class="pagination">
+                                    <ul>
+                                        <li  class="disabled">
+                                            <a href="#" >« Prev</a>
+                                        </li>
+                                        <li class="ng-scope active">
+                                        <a href="#" class="ng-binding">1</a>
+                                        </li>
+                                        <li class="ng-scope">
+                                        <a href="#" class="ng-binding">2</a>
+                                        </li>
+                                        <li class="ng-scope">
+                                        <a href="#" class="ng-binding">3</a>
+                                        </li>
+                                        <li class="ng-scope">
+                                        <a href="#" class="ng-binding">4</a>
+                                        </li>
+                                        <li class="ng-scope">
+                                        <a href="#" class="ng-binding">5</a>
+                                        </li>
+                                        <li  class="ng-scope">
+                                        <a href="#" class="ng-binding">6</a>
+                                        </li>
+                                        <li class="ng-scope">
+                                        <a href="#" class="ng-binding">7</a>
+                                        </li>
+                                        <li class="ng-scope">
+                                        <a href="#" class="ng-binding">8</a>
+                                        </li>
+                                        <li  class="ng-scope">
+                                        <a href="#" class="ng-binding">9</a>
+                                        </li>
+                                        <li  class="ng-scope">
+                                        <a href="#" class="ng-binding">10</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Next »</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="switchBlock ng-hide">
+                    <div class="row-fluid">
+                        <div class="span4">
+                            <div class="topicBlock">
+                                <a class="link" href="/experts/web-programming">
+                                    <center>
+                                        <img alt="Web Programming" class="imgBlock" src="/assets/topic/expert/web-programming.png">
+                                <span class="titleBlock">
+                                Web Programming
+                                </span>
+                                    </center>
+                                </a>
+                                <div class="moreLink">
+                                    <div class="row-fluid">
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/ruby-expert-help.png">
+                                            <a class="catLink" href="/ruby-experts">
+                                                Ruby
+                                            </a>
+                                        </div>
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/javascript-expert-help.png">
+                                            <a class="catLink" href="/javascript-experts">
+                                                JavaScript
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/angular-js-expert-help.png">
+                                            <a class="catLink" href="/angularjs-experts">
+                                                AngularJS
+                                            </a>
+                                        </div>
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/python-expert-help.png">
+                                            <a class="catLink" href="/python-experts">
+                                                Python
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/php-expert-help.png">
+                                            <a class="catLink" href="/php-experts">
+                                                PHP
+                                            </a>
+                                        </div>
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/html-css-expert-help.png">
+                                            <a class="catLink" href="/html_css-experts">
+                                                HTML/CSS
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span4">
+                            <div class="topicBlock">
+                                <a class="link" href="/experts/coding">
+                                    <center>
+                                        <img alt="Code" class="imgBlock" src="/assets/topic/expert/coding.png">
+                                    <span class="titleBlock">
+                                    Code
+                                    </span>
+                                    </center>
+                                </a>
+                                <div class="moreLink">
+                                    <div class="row-fluid">
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/ruby-expert-help.png">
+                                            <a class="catLink" href="/ruby-experts">
+                                                Ruby
+                                            </a>
+                                        </div>
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/javascript-expert-help.png">
+                                            <a class="catLink" href="/javascript-experts">
+                                                JavaScript
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/php-expert-help.png">
+                                            <a class="catLink" href="/php-experts">
+                                                PHP
+                                            </a>
+                                        </div>
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/python-expert-help.png">
+                                            <a class="catLink" href="/python-experts">
+                                                Python
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/java-expert-help.png">
+                                            <a class="catLink" href="/java-experts">
+                                                Java
+                                            </a>
+                                        </div>
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/csharp-expert-help.png">
+                                            <a class="catLink" href="/c_sharp-experts">
+                                                C#
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span4">
+                            <div class="topicBlock">
+                                <a class="link" href="/experts/mobile-app-programming">
+                                    <center>
+                                        <img alt="Mobile App Programming" class="imgBlock" src="/assets/topic/expert/mobile-app-programming.png">
+                                    <span class="titleBlock">
+                                      Mobile App Programming
+                                    </span>
+                                    </center>
+                                </a>
+                                <div class="moreLink">
+                                    <div class="row-fluid">
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/ios-expert-help.png">
+                                            <a class="catLink" href="/ios-experts">
+                                                iOS
+                                            </a>
+                                        </div>
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/android-expert-help.png">
+                                            <a class="catLink" href="/android-experts">
+                                                Android
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/swift-expert-help.png">
+                                            <a class="catLink" href="/swift-experts">
+                                                Swift
+                                            </a>
+                                        </div>
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/no-icon.png">
+                                            <a class="catLink" href="/phonegap-experts">
+                                                PhoneGap
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/no-icon.png">
+                                            <a class="catLink" href="/cordova-experts">
+                                                Cordova
+                                            </a>
+                                        </div>
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/no-icon.png">
+                                            <a class="catLink" href="/ionic-experts">
+                                                Ionic
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span4">
+                            <div class="topicBlock">
+                                <a class="link" href="/experts/design">
+                                    <center>
+                                        <img alt="Design / UX" class="imgBlock" src="/assets/topic/expert/design.png">
+                                    <span class="titleBlock">
+                                    Design / UX
+                                    </span>
+                                    </center>
+                                </a>
+                                <div class="moreLink">
+                                    <div class="row-fluid">
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/html-css-expert-help.png">
+                                            <a class="catLink" href="/html_css-experts">
+                                                HTML/CSS
+                                            </a>
+                                        </div>
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/no-icon.png">
+                                            <a class="catLink" href="/css-experts">
+                                                CSS
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/no-icon.png">
+                                            <a class="catLink" href="/sass-experts">
+                                                Sass
+                                            </a>
+                                        </div>
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/no-icon.png">
+                                            <a class="catLink" href="/twitter-bootstrap-experts">
+                                                Twitter bootstrap
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/famous-expert-help.png">
+                                            <a class="catLink" href="/famous-experts">
+                                                Famo.us
+                                            </a>
+                                        </div>
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/kendo-ui-expert-help.png">
+                                            <a class="catLink" href="/kendo-ui-experts">
+                                                Kendo UI
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span4">
+                            <div class="topicBlock">
+                                <a class="link" href="/experts/devops">
+                                    <center>
+                                        <img alt="Database / Operations" class="imgBlock" src="/assets/topic/expert/devops.png">
+                                    <span class="titleBlock">
+                                    Database / Operations
+                                    </span>
+                                    </center>
+                                </a>
+                                <div class="moreLink">
+                                    <div class="row-fluid">
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/server-expert-help.png">
+                                            <a class="catLink" href="/server-experts">
+                                                Server
+                                            </a>
+                                        </div>
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/devops-expert-help.png">
+                                            <a class="catLink" href="/devops-experts">
+                                                DevOps
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/mysql-expert-help.png">
+                                            <a class="catLink" href="/mysql-experts">
+                                                MySQL
+                                            </a>
+                                        </div>
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/sql-expert-help.png">
+                                            <a class="catLink" href="/sql-experts">
+                                                SQL
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/mongo-db-expert-help.png">
+                                            <a class="catLink" href="/mongodb-experts">
+                                                MongoDB
+                                            </a>
+                                        </div>
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/hadoop-expert-help.png">
+                                            <a class="catLink" href="/hadoop-experts">
+                                                Hadoop
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span4">
+                            <div class="topicBlock">
+                                <a class="link" href="/experts/development-process">
+                                    <center>
+                                        <img alt="Development Process / Tools" class="imgBlock" src="/assets/topic/expert/development-process.png">
+                                    <span class="titleBlock">
+                                      Development Process / Tools
+                                    </span>
+                                    </center>
+                                </a>
+                                <div class="moreLink">
+                                    <div class="row-fluid">
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/git-expert-help.png">
+                                            <a class="catLink" href="/git-experts">
+                                                Git
+                                            </a>
+                                        </div>
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/devops-expert-help.png">
+                                            <a class="catLink" href="/devops-experts">
+                                                DevOps
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/wordpress.png">
+                                            <a class="catLink" href="/wordpress-experts">
+                                                WordPress
+                                            </a>
+                                        </div>
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/drupal-expert-help.png">
+                                            <a class="catLink" href="/drupal-experts">
+                                                Drupal
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/no-icon.png">
+                                            <a class="catLink" href="/joomla-experts">
+                                                Joomla
+                                            </a>
+                                        </div>
+                                        <div class="span6">
+                                            <img class="catImg" src="/assets/category_icons/seo-expert-help.png">
+                                            <a class="catLink" href="/seo-experts">
+                                                SEO
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
 {{outlet}}

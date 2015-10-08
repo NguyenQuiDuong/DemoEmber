@@ -24,7 +24,7 @@ module.exports = function(environment) {
       'font-src': "'self' data: fonts.googleapis.com netdna.bootstrapcdn.com  fonts.gstatic.com",
       'connect-src': "'self' 127.0.0.1:85 ",
       'img-src': "'self' www.facebook.com www.codementor.io cdn.codementor.io",
-      'style-src': "'self' 'unsafe-inline' use.typekit.net netdna.bootstrapcdn.com",
+      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com use.typekit.net netdna.bootstrapcdn.com",
       'frame-src': "s-static.ak.facebook.com static.ak.facebook.com www.facebook.com"
     },
   };
@@ -33,8 +33,9 @@ module.exports = function(environment) {
     store: 'simple-auth-session-store:local-storage',
     authenticationRoute: 'signin',
     authorizer: 'simple-auth-authorizer:custom',
-    routeAfterAuthentication:'/user/view/1',
-    crossOriginWhitelist: ['http://127.0.0.1:85/']
+    routeAfterAuthentication:'/user/dashboard',
+    crossOriginWhitelist: ['http://127.0.0.1:85/'],
+    authenticationRoute: '/user/signin',
   };
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;

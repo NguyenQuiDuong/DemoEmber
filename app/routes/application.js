@@ -6,26 +6,31 @@ import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 
 // app/routes/application.js
 export default Ember.Route.extend(ApplicationRouteMixin,{
-  beforeModel() {
-    if (this.session.isAuthenticated) {
-      return this._populateCurrentUser();
-    }
-  },
+  //beforeModel() {
+  //  if (this.session.isAuthenticated) {
+  //    return this._populateCurrentUser();
+  //  }
+  //},
+  model: function() {
 
+    return {
+      title: "Rails is omakase"
+    };
+  },
   actions: {
-    sessionAuthenticationSucceeded() {
-      this._populateCurrentUser().then(user => this.transitionTo('dashboard'));
-      console.log(this.get('session'));
+    sessionInvalidationSucceeded:function() {
+      console.log('là dây');
     },
-    invalidateSession: function() {
+    invalidateSession1: function() {
       console.log(this.get('session'));
+      this.transitionTo('index');
       this.get('session').invalidate();
     }
   },
 
   _populateCurrentUser() {
-    const { user_id, user_type } = this.get('session.secure');
-    return this.store.find(user_type, user_id)
-      .then(user => this.get('currentUser').set('content', user) && user);
+    console.log( this.get('session.secure'));
+  //  return this.store.find(user_type, user_id)
+  //    .then(user => this.get('currentUser').set('content', user) && user);
   }
 });

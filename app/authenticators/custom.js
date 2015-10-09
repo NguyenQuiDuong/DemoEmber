@@ -3,9 +3,13 @@ import Base from 'simple-auth/authenticators/base';
 
 export default Base.extend({
   restore(data) {
-    console.log('restore');
-    console.log(data);
-    return Ember.RSVP.reject();
+    return new Ember.RSVP.Promise(function(resolve, reject) {
+      if (!Ember.isEmpty(data.token)) {
+        resolve(data);
+      } else {
+        reject();
+      }
+    });
   },
 
   authenticate(options) {
@@ -47,7 +51,7 @@ export default Base.extend({
   },
 
   invalidate(data) {
-    console.log('invalidate');
+    console.log('Dang xuat');
     console.log(data);
     return Ember.RSVP.resolve();
   }

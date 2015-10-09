@@ -28,16 +28,23 @@ Router.map(function () {
     this.route('signout');
     this.route('view',{path: '/view/:id'});
     this.route('dashboard');
+    this.route('signup');
   });
 
   this.route('experts', function() {
-    this.route('webprogram');
+    this.route('webprogram',{path:'/webprogram'},function(){
+      this.route('ruby');
+    });
   });
   this.route('user\\signin');
   this.route('admin', function() {
     this.route('experts', function() {
       this.route('subjects', function() {
         this.route('categories');
+      });
+
+      this.route('webprogram', function() {
+        this.route('ruby');
       });
     });
   });

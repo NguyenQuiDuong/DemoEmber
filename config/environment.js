@@ -30,13 +30,17 @@ module.exports = function(environment) {
   };
 
   ENV['simple-auth'] = {
-    store: 'simple-auth-session-store:local-storage',
+    //store: 'simple-auth-session-store:cookie',
     authenticationRoute: 'signin',
     authorizer: 'simple-auth-authorizer:custom',
     routeAfterAuthentication:'/user/dashboard',
     crossOriginWhitelist: ['http://127.0.0.1:85/'],
     authenticationRoute: '/user/signin',
+    routeIfAlreadyAuthenticated: 'user/dashboard',
   };
+  ENV['simple-auth-cookie-store'] = {
+    cookieDomain: 'localhost:4200'
+  }
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;

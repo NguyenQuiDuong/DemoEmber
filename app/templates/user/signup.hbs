@@ -1,1 +1,50 @@
+<link rel="stylesheet" href="css\style-sign-in.css">
+<div class='topBlock'>
+    <center>
+        <div class='customizeContainer'>
+            <div class='module'>
+                <h1 class='title'>
+                    Đăng ký
+                </h1>
+
+                <div class='session'>
+                    <div class='row-fluid'>
+                        <div class='span12'>
+                          {{#if errorMessage}}
+                              <div class="alert alert-danger">
+                                {{errorMessage}}
+                              </div>
+                          {{/if}}
+
+                            <form {{action "signup" on="submit"}} accept-charset="UTF-8" method="post">
+                                <input name="utf8" type="hidden" value="&#x2713;"/>
+
+                                <div class='form-inputs'>
+                                  {{input type="email" value=user.email class="inputName" placeholder=" Email" required="required" autofocus="autofocus"}}
+                                  {{#if showError}}
+                                    {{errors.email}}
+                                  {{/if}}
+                                  {{input value=user.password id="password" class="inputPassword" placeholder="Password" required="required" type="password" autofocus="autofocus"}}
+                                  {{input value=rePassword id="re-typePassword" class="inputPassword" placeholder="Nhập lại password" required="required" type="password" autofocus="autofocus"}}
+                                  {{input value=user.firstName class="inputName"  placeholder="Tên" autofocus="autofocus"}}
+                                  {{input value=user.lastName class="inputName"  placeholder="Họ" autofocus="autofocus"}}
+                                  {{input value=user.displayName target="" class="inputName"  placeholder="Biệt danh" autofocus="autofocus"}}
+                                </div>
+                                <br>
+                                <input class='btn btn-primary submitBtn' type='submit' value='Đăng ký'>
+                            </form>
+
+                            <div class='sharedTitle'>
+                                <a class="sharedTitle" href="/users/reset">Forgot your password?</a>
+                            </div>
+                            <div class='signUp muted'>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </center>
+</div>
 {{outlet}}

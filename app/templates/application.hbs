@@ -994,15 +994,97 @@
                         <a href='/mentor/apply'>Trở thành codementor</a>
                     </li>
                 </ul>
-                }
                 <ul class='nav pull-right'>
                   {{#if session.isAuthenticated}}
-                      <li>
-                          <a {{action 'invalidateSession'}} >Đăng xuất</a>
+                      <li class="hideMobile">
+                          <div class="actionBlock">
+                              <div class="highlight">
+                                  Get Help Now
+                                  <b class="caret"></b>
+                              </div>
+                              <div class="hidden-action">
+                                  <a class="action-btn" href="/questions/new" onclick="window.IHRc&amp;&amp;window.IHRc.getHelpNow(event,&quot;header&quot;)">
+                                      <i class="icon-plus-sign"></i>
+                                      Get Live Help
+                                  </a>
+                                  <a class="action-btn" href="/hire/new">
+                                      <i class="icon-user"></i>
+                                      Hire a Freelancer
+                                  </a>
+                              </div>
+                          </div>
+                      </li>
+                      <li class="hideMobile">
+                          <div class="chatNotification pull-right"><a class="cm-notify" href="#" ><i class="icon-comments"></i><i class="count ng-binding ng-hide" >0</i></a><div class="notification-list list-group ng-hide" ><div class="list-group-heading clearfix"><h3 class="list-group-title pull-left">Inbox<img ng-src="/assets/ajax-loader.gif"  src="/assets/ajax-loader.gif" class="ng-hide"></h3></div><div class="list-group-body"><!-- ngRepeat: noti in chatNoti.notifications --><div class="empty-notification list-group-item read center" ng-show="chatNoti.notifications.length==0">No notifications.</div></div><div class="list-group-footer center clearfix"></div></div></div>
+                      </li>
+                      <li class="hideMobile">
+                          <div class="inboxNotification pull-right"><a class="cm-notify" ><i class="icon-bell-alt"></i><i class="count ng-binding ng-hide" ng-hide="count<=0 || hideCount">0</i></a><div class="notification-list list-group ng-hide" ng-show="show"><div class="list-group-heading clearfix"><h3 class="list-group-title pull-left">Notifications<img ng-src="/assets/ajax-loader.gif" ng-show="loading" src="/assets/ajax-loader.gif" class="ng-hide"></h3><div class="action pull-right"><a href="#" ng-click="markAllAsRead()">Mark as Read</a></div></div><div class="list-group-body" style="max-height: 1px;"><!-- ngRepeat: noti in notifications --><div class="empty-notification list-group-item read center" ng-show="notifications.length==0">No notifications.</div></div><div class="list-group-footer center clearfix"><a href="/notifications">See All</a></div></div></div>
+                      </li>
+                      <!-- Gravatar Dropdown Will be hidden when hambuger -->
+                      <li class="dropdown hideMobile pull-right">
+                          <a class="dropdown-toggle profile-avatar ng-scope" data-toggle="dropdown" href="#" ng-class="{'show':profileMenu}" ng-controller="headerProfileAvatarCtrl" ng-init="init('https://www.gravatar.com/avatar/e396607e917deb8ab2306669cbede5f9?d=mm&amp;s=200')">
+                              <img ng-src="" src="https://www.gravatar.com/avatar/e396607e917deb8ab2306669cbede5f9?d=mm&amp;s=200">
+                          </a>
+                          <ul class="dropdown-menu profile-avatar-menu">
+                              <li class="item">
+                                  <a href="/dashboard">
+                                      <i class="icon-dashboard"></i>
+                                      Dashboard
+                                  </a>
+                              </li>
+                              <li class="item">
+                                  <a href="/15tvjindo">
+                                      <i class="icon-user"></i>
+                                      My Profile
+                                  </a>
+                              </li>
+                              <li class="item">
+                                  <a href="/users/profile_setting">
+                                      <i class="icon-gear"></i>
+                                      Settings
+                                  </a>
+                              </li>
+                              <li class="item">
+                                  <a href="/users/buy_credit">
+                                      <i class="icon-credit-card"></i>
+                                      Billing
+                                  </a>
+                              </li>
+                              <li class="item">
+                                  <a href="/users/referral">
+                                      <i class="icon-dollar"></i>
+                                      Free Credits
+                                  </a>
+                              </li>
+                              <li class="item">
+                                  <a href="/session?intro=true">
+                                      <i class="icon-play"></i>
+                                      Test Session
+                                  </a>
+                              </li>
+                              <li class="item">
+                                  <a clear-storage="" rel="nofollow" data-method="delete" {{action 'invalidateSession1'}}><i class="icon-signout"></i>
+                                      {{title}}
+                                  </a></li>
+                          </ul>
+                      <!-- Will be shown when hambuger -->
+                      <li class="showMobile">
+                          <a href="/users/profile_setting">
+                              <i class="icon-gear"></i>
+                              Cài đặt
+                          </a>
+                      </li>
+                      <li class="showMobile">
+                          <a clear-storage="" rel="nofollow" data-method="delete" {{action 'invalidateSession'}}><i class="icon-signout"></i>
+                              Đăng xuất
+                          </a></li>
                       </li>
                   {{else}}
                       <li>
-                          <a href='/user/signin'>Sign In</a>
+                          <a href="/user/signup" class="highlight red-btn"  id="headerSignUpBtn">Đăng kí</a>
+                      </li>
+                      <li>
+                          <a href='/user/signin'>Đăng nhập</a>
                       </li>
                   {{/if}}
                 </ul>

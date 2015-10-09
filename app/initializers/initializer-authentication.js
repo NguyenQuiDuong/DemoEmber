@@ -10,6 +10,8 @@ export default {
   initialize: function(container, application) {
     application.register('simple-auth-authenticator:custom', CustomAuthenticator);
     application.register('simple-auth-authorizer:custom', CustomAuthorizer);
+    //var applicationRoute = container.lookup('route:application');
+    //var session          = container.lookup('simple-auth-session:main');
   }
 };
 

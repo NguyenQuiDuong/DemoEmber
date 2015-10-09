@@ -22,8 +22,7 @@
                                 <div class='form-inputs'>
                                   {{input value=user.email class="inputName" placeholder=" Email" required="required" autofocus="autofocus"}}
                                   {{input value=user.password class="inputPassword" placeholder="Password" required="required" type="password" autofocus="autofocus"}}
-                                    <label for="user_remember_me"><input type="checkbox" name="remember_me"
-                                                                         id="user_remember_me" class="boolean"/>
+                                    <label for="user_remember_me">{{input type="checkbox" checked=remember_me id="user_remember_me" class="boolean"}}
                                         Remember me
                                     </label></div>
                                 <br>

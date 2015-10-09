@@ -1,6 +1,5 @@
 import DS from 'ember-data';
 import Ember from 'ember';
-import AuthBase from 'simple-auth/authenticators/base';
 
 /*
  * namespace for the DSP Adapter
@@ -49,7 +48,6 @@ export default EmberDreamFactoryAdapter.Adapter = DS.RESTAdapter.extend({
   defaultSerializer: '-dreamfactory',
 
   init: function () {
-    console.log(this.get('session'));
     this._super();
     this.set('host' ,'http://127.0.0.1:85');
     this.set('namespace', 'api/v2/bitnami_dreamfactory/_table');
@@ -61,6 +59,7 @@ export default EmberDreamFactoryAdapter.Adapter = DS.RESTAdapter.extend({
   },
 
   findQuery: function (store, type, query) {
+    console.log(store);
     if (typeof query.procedure !== 'undefined') {
       // A stored procedure was requested. Alter buildUrl to use the correct API path
       var proc = query.procedure;
@@ -129,7 +128,7 @@ export default EmberDreamFactoryAdapter.Adapter = DS.RESTAdapter.extend({
   },
 
   pathForType: function (type) {
-    return Ember.String.pluralize(Ember.String.capitalize(Ember.String.camelize(type)));
+    return Ember.String.decamelize(type);
   },
 
   buildProcUrl: function (proc) {
